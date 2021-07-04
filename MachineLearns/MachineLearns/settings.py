@@ -72,7 +72,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'MachineLearns.wsgi.application'
-
+#WSGI_APPLICATION = 'django_wsgi.handler.APPLICATION'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
