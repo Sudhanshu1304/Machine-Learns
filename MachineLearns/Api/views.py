@@ -4,10 +4,9 @@ from .apps import AutoencoderConfig
 from django.http import JsonResponse
 from rest_framework.views import APIView
 
-# Create your views here.
-print("View1")
+
 class apiView(APIView):
-    print("View2")
+  
     def get(self,request):
         print("Api Called")
         if request.method == 'GET':
@@ -16,21 +15,21 @@ class apiView(APIView):
             
             dict_obj = json.loads(obj)
             name = dict_obj['name']
-            #app_obj = AutoencoderConfig.get_img()
-            img = AutoencoderConfig.get_img()#app_obj.get_img()
-            print("Img is ",img)
+         
+            img = AutoencoderConfig.get_img()
+           
             
-            model = AutoencoderConfig.loadModel(name)#app_obj.loadModel(name)#AutoencoderConfig()
-            #model = Model.loadModel(name)
+            model = AutoencoderConfig.loadModel(name)
+            
             print('Model loaded' )
-            img = model.predict(img.reshape((-1,28,28,1)))
+            img = model.predict(img.reshape((-1,28,28,1)))[0]
             
             
             lists = img.tolist()
             json_str = json.dumps(lists)
 
-            pred = {"img":json_str}#['abc']#{"Hi":dict2}#model.predict(img.reshape(-1,28,28,1))
-        #print("&&& : ",pred)
+            pred = {"img":json_str}
+        
         return JsonResponse(pred)
 
 
