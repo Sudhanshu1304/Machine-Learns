@@ -9,7 +9,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'css/encoder.css' %}">
+    <link rel="stylesheet" href="{% static 'css/encodersize.css' %}">
   </head>
   <body>
       
@@ -130,7 +130,40 @@
 
             <!-- Card View section-->
 
+            <div class="row row1" >
+                
+                <div class="col-md-6">
+                    Model Selection
+                </div>
 
+                <div class="col-md-6">
+                    
+                    <div class="row rowimg">
+
+                        <div class="row">
+                            <form method="POST">
+                                {% csrf_token %}
+                                <button class="btn btn-primary changeimg" type="submit" name="but" value="ancoder_dense_0_epochs_3_neck_3_time_">
+                                    Change Image
+                                </button>
+                            </form>
+                        </div>
+    
+                        <div class="row">
+                            <img src="data:imge/png;base64, {{img|safe}} " height="300px"  >
+                        </div>
+                            
+                        
+                            
+                                    
+
+                    </div>
+                            
+                   
+                                
+
+                </div>
+            </div>
             
             
 

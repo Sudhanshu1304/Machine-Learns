@@ -15,3 +15,13 @@
 .header{
     margin-top: 40px;
 }
+
+.row1{
+    margin-top: 10%;
+  
+}
+
+.rowimg{
+    /* height: 30vh !important; */
+    background-color: aqua;
+}

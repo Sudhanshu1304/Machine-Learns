@@ -18,9 +18,9 @@ def get_graph():
     buffer.close()    
     return graph
         
-print("Called2!!!!")
+
 def make_img(img):
-    print("Called!!!!")
+    
     plt.switch_backend("AGG")
     img = np.array(img)
     plt.imshow(img,cmap='gray')
@@ -31,7 +31,7 @@ def plot_images_encoded_in_latent_space(latent_representations,sample_labels):
     latent_representations = np.array(latent_representations)
     sample_labels = np.array(sample_labels)
     plt.switch_backend("AGG")
-    plt.figure(figsize=(10, 10))
+    
     plt.scatter(latent_representations[:, 0],
                 latent_representations[:, 1],
                 cmap="rainbow",

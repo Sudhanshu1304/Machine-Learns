@@ -24,7 +24,7 @@ def encoder(request):
 def encoder_size(request):
     
     if request.method == 'POST':
-
+        print("But clicked!!")
         name = request.POST.get('but')
  
         obj = json.dumps({'name':name})
