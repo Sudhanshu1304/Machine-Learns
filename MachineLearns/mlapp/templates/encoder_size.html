@@ -27,7 +27,7 @@
         
         <form method="POST">
             {% csrf_token %}
-            <button type="submit" id="but1" name="but" value="dense_0_values_[64, 32, 16]_output_2_epochs_10_">
+            <button type="submit" id="but1" name="but" value="ancoder_dense_0_epochs_3_neck_3_time_">
                 Click
             </button>
         </form>
@@ -35,6 +35,10 @@
         <div>
           <img src="data:imge/png;base64, {{img|safe}} " >
         </div>
+        <div>
+          <img src="data:imge/png;base64, {{rep_img|safe}} " >
+        </div>
+
 
     {% endblock body %}
 

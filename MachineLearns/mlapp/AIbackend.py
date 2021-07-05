@@ -26,3 +26,21 @@ def make_img(img):
     plt.imshow(img,cmap='gray')
     graph = get_graph()
     return graph
+
+def plot_images_encoded_in_latent_space(latent_representations,sample_labels):
+    latent_representations = np.array(latent_representations)
+    sample_labels = np.array(sample_labels)
+    plt.switch_backend("AGG")
+    plt.figure(figsize=(10, 10))
+    plt.scatter(latent_representations[:, 0],
+                latent_representations[:, 1],
+                cmap="rainbow",
+                c=sample_labels,
+                alpha=0.5,
+                s=2)
+    plt.colorbar()
+    graph = get_graph()
+    return graph
+    
+
+    
