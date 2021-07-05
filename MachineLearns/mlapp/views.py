@@ -14,14 +14,22 @@ import requests
 
 def home(request):
     
-    print("Req : ",request)
-    
-    data = {"abc":1234}
-    j = json.dumps(data)
-    print(j)
-    res = requests.get('http://127.0.0.1:8000/api/?data={}'.format(j))
-    print("Req est is : ! ",res.json())
-    #print('>>>>res : ',json.loads(res))
+   
     return render(request,'home.html',{})
 
 
+def encoder_size(request):
+    
+    if request.method == 'POST':
+        
+      
+        
+        name = request.POST.get('but')
+        print("\n\n>>>>>Value of name : ",name)
+        
+        obj = json.dumps({'name':name})
+        image = requests.get('http://127.0.0.1:8000/api/?name={}'.format(obj))
+    
+        print("Img found",image)
+    
+    return render(request,'encoder_size.html',{})
