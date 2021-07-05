@@ -17,6 +17,8 @@ def home(request):
     return render(request,'home.html',{})
 
 
+def encoder(request):
+    return render(request,"encoders.html",{})
 def encoder_size(request):
     
     if request.method == 'POST':
@@ -40,3 +42,4 @@ def encoder_size(request):
         return render(request,'encoder_size.html',{"img":img,"rep_img":rep_img})
     
     return render(request,'encoder_size.html',{})
+
