@@ -7,6 +7,11 @@
 }
 
 .cousalcard{
-    padding: 0px;
-    margin: 0px;
+    height: 50vh;
+}
+
+
+.cardrow{
+    margin-top: 50px;
+    margin-bottom: 50px;
 }

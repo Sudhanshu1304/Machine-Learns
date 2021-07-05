@@ -19,6 +19,8 @@ def home(request):
 
 def encoder(request):
     return render(request,"encoders.html",{})
+
+
 def encoder_size(request):
     
     if request.method == 'POST':
