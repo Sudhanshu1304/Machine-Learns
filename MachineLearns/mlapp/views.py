@@ -1,3 +1,4 @@
+from urllib.request import HTTPRedirectHandler
 from django.shortcuts import render
 from django.http import Http404, response
 from numpy.lib.type_check import imag
@@ -24,24 +25,52 @@ def encoder(request):
 def encoder_size(request):
     
     if request.method == 'POST':
-        print("But clicked!!")
-        name = request.POST.get('but')
- 
-        obj = json.dumps({'name':name})
-        image = requests.get('http://127.0.0.1:8000/api/?name={}'.format(obj))
-        image = image.json()
-        image2 = image['img']
-        rep_img = image['rep_img']
-        rep_lab = image['rep_lab']
-        img = json.loads(image2)
-        rep_img = json.loads(rep_img)
-        rep_lab = json.loads(rep_lab)
+        print("But clicked!! : ",request.POST.get)
+        if request.POST.get('exampleRadios') != None :
+            
+            name = request.POST.get('exampleRadios')
+            
+            
+            print("Name : ",name)
+            obj = json.dumps({'name':name})
+            image = requests.get('http://127.0.0.1:8000/api/?name={}'.format(obj))
+            image = image.json()
+            image2 = image['img']
+            rep_img = image['rep_img']
+            rep_lab = image['rep_lab']
+            img = json.loads(image2)
+            rep_img = json.loads(rep_img)
+            rep_lab = json.loads(rep_lab)
+            
+           # print("\n\n^^^^^^^^^^Img found",img,type(img))
+            img = make_img(img)
+            rep_img = plot_images_encoded_in_latent_space(rep_img,rep_lab)
+            
+            return render(request,'encoder_size.html',{"img":img,"rep_img":rep_img})
         
-        print("\n\n^^^^^^^^^^Img found",img,type(img))
-        img = make_img(img)
-        rep_img = plot_images_encoded_in_latent_space(rep_img,rep_lab)
         
-        return render(request,'encoder_size.html',{"img":img,"rep_img":rep_img})
-    
+        
+        elif(request.POST.get('but')!=None):
+            name = request.POST.get('but')
+            print("Name : ",name)
+            obj = json.dumps({'name':name})
+            image = requests.get('http://127.0.0.1:8000/api/?name={}'.format(obj))
+            image = image.json()
+            image2 = image['img']
+            rep_img = image['rep_img']
+            rep_lab = image['rep_lab']
+            img = json.loads(image2)
+            rep_img = json.loads(rep_img)
+            rep_lab = json.loads(rep_lab)
+            
+           # print("\n\n^^^^^^^^^^Img found",img,type(img))
+            img = make_img(img)
+            rep_img = plot_images_encoded_in_latent_space(rep_img,rep_lab)
+            
+            return render(request,'encoder_size.html',{"img":img,"rep_img":rep_img})
+
+        
+        #return HTTPRedirectHandler("encoder_size.html")
+        
     return render(request,'encoder_size.html',{})
 

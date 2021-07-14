@@ -147,20 +147,44 @@
                               </ul>
                               
                         </div>
+                        <form  class="from-group" method="POST">
+                            {% csrf_token %}
                         <div class="card-body">
                             <div class="tab-content" id="myTabContent">
                                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                    <div class="list-group">
-                                        <a type="radio" name="options" id="option1" autocomplete="off" class="list-group-item list-group-item-action" checked >Dapibus ac facilisis in</a>
-                                      
+
+                                    
+
+                                        <div class="form-check" >
+                                       
+                                            <div class="row  list-group-item list-group-item-action list-group-item-light">
+                                                <input class="form-check-input model" type="radio" name="exampleRadios" id="exampleRadios1" value="ancoder_dense_0_epochs_3_neck_3_time_" checked>
+                                                <label class="form-check-label model2" for="exampleRadios1">
+                                                    Default Radio
+                                                </label>
+                                            </div>
+                                            <div class="row  list-group-item list-group-item-action list-group-item-light">
+                                                <input class="form-check-input model" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                                <label class="form-check-label model2" for="exampleRadios2">
+                                                    Default Radio 2
+                                                </label>
+                                            </div>
+                                            
+                                            <div class="row  list-group-item list-group-item-action list-group-item-light">
+                                                <input class="form-check-input model " type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
+                                                <label class="form-check-label model2 " for="exampleRadios3">
+                                                    Default Radio 3
+                                                </label>
+    
+                                            </div>
+                                           
+                                            
                                         
-                                        <a href="#" class="list-group-item list-group-item-action list-group-item-light">This is a primary list group item</a>
-                                        <a href="#" class="list-group-item list-group-item-action list-group-item-light">This is a secondary list group item</a>
-                                        <a href="#" class="list-group-item list-group-item-action list-group-item-light">This is a success list group item</a>
-                                        <a href="#" class="list-group-item list-group-item-action list-group-item-light">This is a danger list group item</a>
-                                        <a href="#" class="list-group-item list-group-item-action list-group-item-light">This is a warning list group item</a>
-                                        
-                                      </div>
+    
+                                        </div>
+                                        <!-- <button type="submit">Submit</button> -->
+                                    
+                                    
                                 </div>
                                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                                     <div class="list-group">
@@ -181,13 +205,14 @@
                         <div class="card-footer text-muted">
                             <button class="btn btn-primary" type="submit">Submit</button>
                         </div>
+                    </form>
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     
                     <div class="row rowimg">
-
+                        
                         <div class="row">
                             <form method="POST">
                                 {% csrf_token %}
@@ -199,6 +224,9 @@
     
                         <div class="row">
                             <img src="data:imge/png;base64, {{img|safe}} " height="300px"  >
+                        </div>
+                        <div class="row">
+                            <img src="data:imge/png;base64, {{rep_img|safe}} " height="300px"  >
                         </div>
                             
                         
