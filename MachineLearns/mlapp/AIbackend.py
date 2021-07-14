@@ -1,9 +1,8 @@
 import matplotlib.pyplot as plt
-import time
 import base64
 from io import BytesIO
-import random
 import numpy as np
+
 
 
 
@@ -23,10 +22,42 @@ def make_img(img):
     
     plt.switch_backend("AGG")
     img = np.array(img)
+    print("^^^^^^^^^^1111111 : ",img[:2])
+    
+    print("mage shape11 : ",img.shape)
     plt.imshow(img,cmap='gray')
+    
     graph = get_graph()
     return graph
 
+
+def make_img2(img):
+    
+    #plt.switch_backend("AGG")
+    #img = np.array(img).astype("float")
+    #print("^^^^^^^^^^222222222 : ",img[:2])
+    #sh = img.shape
+    #img = img.reshape((sh[0],sh[1],1))
+    #print("mage shape22 : ",img.shape)
+    plt.imshow(img,cmap='gray')
+
+    graph = get_graph()
+    return graph
+
+
+
+
+def neck_img(img):
+    #plt.switch_backend("AGG")
+    img = np.array(img)
+    le = len(img)
+    row = int(le/2)
+    # plt.imshow(img.reshape(row,row),cmap='gray')
+    # plt.show()
+    graph = get_graph()
+    return graph
+    
+    
 def plot_images_encoded_in_latent_space(latent_representations,sample_labels):
     latent_representations = np.array(latent_representations)
     sample_labels = np.array(sample_labels)

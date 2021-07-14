@@ -25,7 +25,7 @@ class AutoencoderConfig(AppConfig):
         
         model_bottelneck = tf.keras.models.load_model("Api\\Models\\"+name+"enco")
         pred = model_bottelneck.predict(x_test)
-
+        
         return [model,[pred,y_test]]
   
     def get_img():

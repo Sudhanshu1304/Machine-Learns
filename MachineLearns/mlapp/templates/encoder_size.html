@@ -168,13 +168,13 @@
                                         <div class="form-check" >
                                        
                                             <div class="row  list-group-item list-group-item-action list-group-item-light">
-                                                <input class="form-check-input model" type="radio" name="exampleRadios" id="exampleRadios1" value="ancoder_dense_0_epochs_3_neck_3_time_" checked>
+                                                <input class="form-check-input model" type="radio" name="exampleRadios" id="exampleRadios1" value="ancoder_dense_0_epochs_3_neck_64_time_" checked>
                                                 <label class="form-check-label model2" for="exampleRadios1">
                                                     Default Radio
                                                 </label>
                                             </div>
                                             <div class="row  list-group-item list-group-item-action list-group-item-light">
-                                                <input class="form-check-input model" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                                <input class="form-check-input model" type="radio" name="exampleRadios" id="exampleRadios2" value="ancoder_dense_0_epochs_3_neck_2_time_">
                                                 <label class="form-check-label model2" for="exampleRadios2">
                                                     Default Radio 2
                                                 </label>
@@ -227,14 +227,14 @@
                             <div class="card-header">
                                 <form method="POST">
                                     {% csrf_token %}
-                                    <button class="btn btn-primary changeimg" type="submit" name="but" value="ancoder_dense_0_epochs_3_neck_3_time_">
+                                    <button class="btn btn-primary changeimg" type="submit" name="but" value="ancoder_dense_0_epochs_3_neck_64_time_">
                                         Change Image
                                     </button>
                                 </form>
                             </div>
                             <div class="card-body">
                                 <div class="row">
-                                    <img src="data:imge/png;base64, {{img|safe}} " height="300px" width="100%"  >
+                                    <img src="data:imge/png;base64, {{org|safe}} " height="300px" width="100%"  >
                                 </div>
                             </div>
                             <div class="card-footer text-muted">
@@ -287,11 +287,10 @@
                         <div class="col-md-4">
                             <div class="card">
                                 <div class="card-header">
-                                    Header
+                                    Originl
                                 </div>
                                 <div class="card-body">
-                                    <h4 class="card-title">Title</h4>
-                                    <p class="card-text">Text</p>
+                                    <img src="data:imge/png;base64, {{org|safe}} " height="300px" width="100%"  >
                                 </div>
                                 <div class="card-footer text-muted">
                                     Footer
@@ -301,25 +300,23 @@
                         <div class="col-md-4">
                             <div class="card">
                                 <div class="card-header">
-                                    Header
+                                    Neck
                                 </div>
                                 <div class="card-body">
-                                    <h4 class="card-title">Title</h4>
-                                    <p class="card-text">Text</p>
+                                    <img src="data:imge/png;base64, {{neckimg|safe}} " height="300px" width="100%"  >
                                 </div>
                                 <div class="card-footer text-muted">
-                                    Footer
+                                    Footer 
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="card">
                                 <div class="card-header">
-                                    Header
+                                    Predicted
                                 </div>
                                 <div class="card-body">
-                                    <h4 class="card-title">Title</h4>
-                                    <p class="card-text">Text</p>
+                                    <img src="data:imge/png;base64, {{img|safe}} " height="300px" width="100%"  >
                                 </div>
                                 <div class="card-footer text-muted">
                                     Footer
