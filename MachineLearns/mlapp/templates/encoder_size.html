@@ -129,19 +129,29 @@
             </div>
 
             <!-- Card View section-->
-
+            <header>
+                <h2 class="sect1"><strong>Results</strong></h2> 
+            </header>
             <div class="row row1" >
+               
                 
                 <div class="col-md-6">
-                    Model Selection
+                    
                     <div class="card">
                         <div class="card-header">
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
+                               
                                 <li class="nav-item">
                                   <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true"><strong>DNN</strong></a>
                                 </li>
                                 <li class="nav-item">
                                   <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false"><strong>CNN</strong></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a  class="nav-link disabled">
+                                        <strong>Model Selection</strong> 
+                                    </a>
+                                    
                                 </li>
                                 
                               </ul>
@@ -213,32 +223,120 @@
                     
                     <div class="row rowimg">
                         
-                        <div class="row">
-                            <form method="POST">
-                                {% csrf_token %}
-                                <button class="btn btn-primary changeimg" type="submit" name="but" value="ancoder_dense_0_epochs_3_neck_3_time_">
-                                    Change Image
-                                </button>
-                            </form>
+                        <div class="card">
+                            <div class="card-header">
+                                <form method="POST">
+                                    {% csrf_token %}
+                                    <button class="btn btn-primary changeimg" type="submit" name="but" value="ancoder_dense_0_epochs_3_neck_3_time_">
+                                        Change Image
+                                    </button>
+                                </form>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <img src="data:imge/png;base64, {{img|safe}} " height="300px" width="100%"  >
+                                </div>
+                            </div>
+                            <div class="card-footer text-muted">
+                                Footer
+                            </div>
                         </div>
-    
-                        <div class="row">
-                            <img src="data:imge/png;base64, {{img|safe}} " height="300px"  >
-                        </div>
-                        <div class="row">
-                            <img src="data:imge/png;base64, {{rep_img|safe}} " height="300px"  >
-                        </div>
-                            
-                        
-                            
                                     
 
                     </div>
+
+                   
                             
                    
                                 
 
                 </div>
+
+
+                <div class="container-fluid">
+                    <header>
+                        
+                        <h2 class="sect1"><strong>Results</strong></h2> 
+                    </header>
+                    <!-- <div class="row">
+                        <img src="data:imge/png;base64, {{rep_img|safe}} " height="300px"  >
+                    </div> -->
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi inventore quasi facilis nesciunt ut sapiente vitae nam quod officia! Aliquam quisquam molestiae labore blanditiis saepe nisi, est eum quia eius?
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit optio voluptas laudantium hic harum. Cupiditate, dignissimos earum? Atque et ducimus, debitis facilis laudantium veniam vel quidem earum nobis repellat neque!
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti commodi, quo itaque omnis, mollitia deleniti et sit odio nam iste incidunt? Sapiente, natus voluptatem? Quasi, iusto mollitia! Aut, eum natus.                           
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    Dimentional Representation
+                                </div>
+                                <div class="card-body">
+                                    <img src="data:imge/png;base64, {{rep_img|safe}} " height="300px" width="100%" >
+                                </div>
+                                <div class="card-footer text-muted">
+                                    Footer
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-header">
+                                    Header
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="card-title">Title</h4>
+                                    <p class="card-text">Text</p>
+                                </div>
+                                <div class="card-footer text-muted">
+                                    Footer
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-header">
+                                    Header
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="card-title">Title</h4>
+                                    <p class="card-text">Text</p>
+                                </div>
+                                <div class="card-footer text-muted">
+                                    Footer
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-header">
+                                    Header
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="card-title">Title</h4>
+                                    <p class="card-text">Text</p>
+                                </div>
+                                <div class="card-footer text-muted">
+                                    Footer
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+                </div>
+
+
+                
             </div>
             
             

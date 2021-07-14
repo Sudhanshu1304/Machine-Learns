@@ -17,8 +17,8 @@
 }
 
 .row1{
-    margin-top: 10%;
-  
+    /* margin-top: 10%; */
+    height: 100vh;
 }
 
 .rowimg{
@@ -39,3 +39,6 @@
 }
 
 
+.sect1{
+    border-bottom: 5px solid #7a0000;
+}
