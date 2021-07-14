@@ -21,5 +21,6 @@ from Api import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("api/",views.apiView.as_view()),
+    path("api/img/",views.getImage.as_view()),
     path("",include("mlapp.urls")),
 ]

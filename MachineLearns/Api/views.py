@@ -7,9 +7,11 @@ from rest_framework.views import APIView
 from matplotlib import pyplot as plt
 
 
+
 class apiView(APIView):
-  
+    
     def get(self,request):
+        global IMAGE2,img2
         print("Api Called")
         if request.method == 'GET':
             
@@ -18,12 +20,12 @@ class apiView(APIView):
             dict_obj = json.loads(obj)
             name = dict_obj['name']
          
-            img2 = AutoencoderConfig.get_img()
+            # img2 = AutoencoderConfig.get_img()
             
-            print("Model IMG 22 SHAPE : ",img2.shape)
-            lists2 = img2.reshape((img2.shape[0],img2.shape[1],1)).tolist()
+            # print("Model IMG 22 SHAPE : ",img2.shape)
+            # lists2 = img2.reshape((img2.shape[0],img2.shape[1],1)).tolist()
             
-            org = json.dumps(lists2)
+            org = IMAGE2#json.dumps(lists2)
             
             
             
@@ -52,3 +54,20 @@ class apiView(APIView):
 
 
 
+class getImage(apiView):
+    
+    def get(self, request):
+        global IMAGE2,img2
+        print("\nCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n")
+        if request.method == 'GET':
+
+            IMAGE = AutoencoderConfig.get_img()
+            lists2 = IMAGE.reshape((IMAGE.shape[0],IMAGE.shape[1],1)).tolist()
+            img2 = IMAGE
+            org = json.dumps(lists2)
+            IMAGE2 = org
+            print("\nCBBBBBBBBBBBBBBBBBBBBBBBBBBBBB\n")
+            print(org)
+            pred = {"org":org}
+            
+        return JsonResponse(pred)

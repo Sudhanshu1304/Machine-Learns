@@ -225,7 +225,7 @@
                         
                         <div class="card">
                             <div class="card-header">
-                                <form method="POST">
+                                <form method="GET">
                                     {% csrf_token %}
                                     <button class="btn btn-primary changeimg" type="submit" name="but" value="ancoder_dense_0_epochs_3_neck_64_time_">
                                         Change Image
@@ -234,7 +234,7 @@
                             </div>
                             <div class="card-body">
                                 <div class="row">
-                                    <img src="data:imge/png;base64, {{org|safe}} " height="300px" width="100%"  >
+                                    <img src="data:imge/png;base64, {{orgimg|safe}} " height="300px" width="100%"  >
                                 </div>
                             </div>
                             <div class="card-footer text-muted">
@@ -290,7 +290,7 @@
                                     Originl
                                 </div>
                                 <div class="card-body">
-                                    <img src="data:imge/png;base64, {{org|safe}} " height="300px" width="100%"  >
+                                    <img src="data:imge/png;base64, {{orgimg|safe}} " height="300px" width="100%"  >
                                 </div>
                                 <div class="card-footer text-muted">
                                     Footer
