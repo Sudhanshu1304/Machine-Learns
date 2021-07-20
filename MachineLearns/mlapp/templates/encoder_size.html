@@ -15,7 +15,7 @@
       
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
@@ -153,13 +153,10 @@
                                     <a  class="nav-link disabled">
                                         <strong>Model Selection</strong> 
                                     </a>
-                                    
                                 </li>
-                                
                               </ul>
-                              
                         </div>
-                        <form  class="from-group" method="POST">
+                        <form  class="from-group" id="form1" >
                             {% csrf_token %}
                         <div class="card-body">
                             <div class="tab-content" id="myTabContent">
@@ -215,7 +212,7 @@
                               </div>
                         </div>
                         <div class="card-footer text-muted">
-                            <button class="btn btn-primary" onclick="show()"  type="submit">Submit</button>
+                            <button class="btn btn-primary data" id="subbut"  type="submit" >Submit</button>
                         </div>
 
                         
@@ -229,16 +226,16 @@
                         
                         <div class="card">
                             <div class="card-header">
-                                <form method="GET">
-                                    {% csrf_token %}
-                                    <button class="btn btn-primary changeimg" type="submit" name="but" value="ancoder_dense_0_epochs_3_neck_64_time_">
+                                
+                                    
+                                    <button class="btn btn-primary changeimg" type="submit" id='mainimgbut' >
                                         Change Image
                                     </button>
-                                </form>
+                                
                             </div>
                             <div class="card-body">
                                 <div class="row">
-                                    <img src="data:imge/png;base64, {{orgimg|safe}} " height="300px" width="100%"  >
+                                    <img src="" id ='mainimg' height="300px" width="100%"  >
                                 </div>
                             </div>
                             <div class="card-footer text-muted">
@@ -294,7 +291,7 @@
                                     Originl
                                 </div>
                                 <div class="card-body">
-                                    <img src="data:imge/png;base64, {{orgimg|safe}} " height="300px" width="100%"  >
+                                    <img src="" id='mainimg2' height="300px" width="100%"  >
                                 </div>
                                 <div class="card-footer text-muted">
                                     Footer
@@ -358,19 +355,46 @@
 
 
     <script>
-        var count = 0;
-        document.getElementById("result").style.display="block";
-        function show(){
-            //console.log("Entered!!!!! ",count);
-            //if (count<=1){
-           //     document.getElementById("result").style.display="none";
-            //}
-            //else{
-           //     document.getElementById("result").style.display="block";
-            //}
-           // count = count + 1;
-            
-        }
+        
+        async function firstimg(){
+            // This function is for the the original Image
+            const data = await fetch('http://127.0.0.1:8000/api/img');
+            const d2 = await data.json();
+            const val = d2['org'];
+            val = JSON.parse(val);
+
+            fir = 'data:image/png;base64,';
+            str = fir.concat(val);
+            document.getElementById('mainimg').setAttribute(
+                'src',str
+            );
+            document.getElementById('mainimg2').setAttribute(
+                'src',str
+            );
+      
+        };
+
+
+
+        $('#mainimgbut').click(function call(){
+            firstimg();
+        });
+
+      
+
+        $(document).ready(function(){
+            firstimg();
+        })
+
+
+        
+
+   
+       
+       
+
+        
+        
     </script>
 
 

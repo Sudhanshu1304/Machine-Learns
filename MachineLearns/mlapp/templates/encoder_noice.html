@@ -229,12 +229,19 @@
                         
                         <div class="card">
                             <div class="card-header">
-                                <form method="GET">
-                                    {% csrf_token %}
-                                    <button class="btn btn-primary changeimg" type="submit" name="but" value="ancoder_dense_0_epochs_3_neck_64_time_">
-                                        Change Image
-                                    </button>
-                                </form>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <form method="GET">
+                                            {% csrf_token %}
+                                            <button class="btn btn-primary changeimg" type="submit" name="but" value="ancoder_dense_0_epochs_3_neck_64_time_">
+                                                Change Image
+                                            </button>
+                                        </form>
+                                    </div>
+                                    <div class="col-md-4">Numbers DS</div>
+                                    <div class="col-md-4">Fashion DS</div>
+                                </div>
+                                
                             </div>
                             <div class="card-body">
                                 <div class="row">
@@ -358,7 +365,7 @@
 
 
     <script>
-        var count = 0;
+        {% comment %} var count = 0;
         document.getElementById("result").style.display="block";
         function show(){
             //console.log("Entered!!!!! ",count);
@@ -370,7 +377,7 @@
             //}
            // count = count + 1;
             
-        }
+        } {% endcomment %}
     </script>
 
 
