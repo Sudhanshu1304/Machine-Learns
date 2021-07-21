@@ -16,41 +16,37 @@ class apiView(APIView):
         if request.method == 'GET':
             
             obj = request.GET.get('name')
-            print("Object : ",obj)
+ 
             
             dict_obj = json.loads(obj)
-            print("1")
+         
             name = dict_obj['name']
-            print("2")
-            # img2 = AutoencoderConfig.get_img()
+     
+            org = IMAGE2
             
-            # print("Model IMG 22 SHAPE : ",img2.shape)
-            # lists2 = img2.reshape((img2.shape[0],img2.shape[1],1)).tolist()
-            
-            org = IMAGE2#json.dumps(lists2)
-            
-            
-            print("3")
             
             model,rep = AutoencoderConfig.loadModel(name)
-            print("4")
-            print('Model loaded' )
+        
             img = model.predict(img2.reshape((-1,28,28,1)))[0]
-            print("5")
-            print("Model IMG 1 SHAPE : ",img.shape)
+            #img = ai.make_img(img)
             lists = img.tolist()
+            lists = ai.make_img(lists)
             json_str = json.dumps(lists)
             print("6")
             rep_img = rep[0]
             rep_lab = rep[1]
-            print("7")
-            lists = rep_img.tolist()
-            rep_str = json.dumps(lists)
+            # print("7")
+            # lists = rep_img.tolist()
+           
+            # rep_str = json.dumps(lists)
             
-            lists = rep_lab.tolist()
-            rep_lab_str = json.dumps(lists)
+            # lists = rep_lab.tolist()
+            # rep_lab_str = json.dumps(lists)
+            
+            rep_img = ai.plot_images_encoded_in_latent_space(rep_img,rep_lab)
+            rep_str = json.dumps(rep_img)
 
-            pred = {"img":json_str,"rep_img":rep_str,"rep_lab":rep_lab_str,"org":org}
+            pred = {"img":json_str,"rep_img":rep_str,"org":org}
         
         print(">>>>>>>>>>Clear here<<<<<<<<<<<<<< : \n")
     
@@ -72,8 +68,7 @@ class getImage(apiView):
             
             org = json.dumps(lists2)
             IMAGE2 = org
-            print("\nCBBBBBBBBBBBBBBBBBBBBBBBBBBBBB\n")
-            print(org)
+         
             pred = {"org":org}
             
         return JsonResponse(pred)

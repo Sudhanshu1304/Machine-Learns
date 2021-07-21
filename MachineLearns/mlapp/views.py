@@ -22,44 +22,7 @@ def encoder_size(request):
     
     print("Mathod : ",request.method)
     global org
-    
-    # image_org = requests.get('http://127.0.0.1:8000/api/img/')
-    # image_org = image_org.json()['org']
-    # org = json.loads(image_org)
-    # org = make_img(org)
-    # print(org)
-    # if request.method == "POST":
-    #     #if request.POST.get('but') != None :
-        
-    
-    #     #elif(request.method == 'POST'):
-    #     image = request.POST.get('data', None)
-    #     print("Imgggg : ",image)
-    #     # image = image.json()
-    #     return response.JsonResponse("Hello!!")
-    #     # image2 = image['img']
-        
-    #     # rep_img = image['rep_img']
-    #     # rep_lab = image['rep_lab']
-    #     # #org = image_org#image['org']
-        
-    #     # #org = json.loads(org)
-        
-        
-    #     # img = json.loads(image2)
-        
-    #     # rep_img = json.loads(rep_img)
-    #     # rep_lab = json.loads(rep_lab)
-    #     # img = make_img2(img)
-    #     # #org = make_img(org)
-    #     # rep_img = plot_images_encoded_in_latent_space(rep_img,rep_lab)
-    
-    # print("\n\n\n\n>>>>>>>><<<<<<<<<<HhHSHSHWUIWHW>>>>\n\n\n")
-        
-    #     # d = {"img":img,"rep_img":rep_img,'orgimg':org}
-    #     # return render(request,'encoder_size.html',d)
-    
-        
+
     return render(request,'encoder_size.html',{})
 
 
