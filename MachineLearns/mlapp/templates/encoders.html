@@ -122,9 +122,38 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste culpa nesciunt error eligendi assumenda accusamus cupiditate, repellendus officia magnam totam impedit optio quae dignissimos commodi delectus incidunt ad vel nam?
+                    Autoencoder is an unsupervised Learning approach.
+                    It is an Artificial Neural Network(ANN) that learns how to capture the most important piece of information and hence helps in removing noise and reducing dimensions.
                     <br>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt voluptatum commodi reprehenderit fugit mollitia, dolor quaerat beatae? Perferendis, tempora maxime? Delectus iste sapiente tempore facilis nobis optio ducimus consequatur magni?
+                    
+                    Autoencoder have four major components:
+                    <br>
+                    <ul>
+                        <li>Encoder -
+
+                            This part of the model learns to encode the original data into a lower latent space(lower dimensions) by focusing on the most important pieces of the data.
+                        </li>
+                        <li>
+                            Bottle Neck - 
+                            which is the layer that contains the compressed representation of the input data. This is the lowest possible dimensions of the input data.
+                        </li>
+                        <li>Decoder - 
+                            In which the model learns how to reconstruct the data from the encoded representation to be as close to the original input as possible.
+                        </li>
+                        
+                        <li>
+                            Reconstruction Loss: - 
+                            This is a method that determines how close is the output is to the original input.
+                        </li>
+                    </ul>
+
+
+
+
+                    They can be used as a generative Model or for dimensionality reduction.
+                    So basically 
+                    <br>encoder acts as a recognition network.
+                    <br>and the decoder as a generative model.
                 </div>
             </div>
 
