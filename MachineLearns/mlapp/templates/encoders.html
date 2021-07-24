@@ -24,7 +24,7 @@
 
 
         
-        <div class="container cont2">
+        <div class="container cont2  ">
 
             <!-- Navbar -->
             <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
@@ -68,7 +68,7 @@
 
             <div class="row">
 
-                <div class="col-md-6">
+                <div class="col-lg-6">
                     
                     <div class="card cousalcard">
                         <div class="card-header">
@@ -121,7 +121,8 @@
                        
                     </div>
                 </div>
-                <div class="col-md-6">
+
+                <div class="col-lg-6">
                     Autoencoder is an unsupervised Learning approach.
                     It is an Artificial Neural Network(ANN) that learns how to capture the most important piece of information and hence helps in removing noise and reducing dimensions.
                     <br>
@@ -147,57 +148,51 @@
                         </li>
                     </ul>
 
-
-
-
-                    They can be used as a generative Model or for dimensionality reduction.
-                    So basically 
-                    <br>encoder acts as a recognition network.
-                    <br>and the decoder as a generative model.
                 </div>
             </div>
 
             <!-- Card View section-->
-
+            <div class="row">
+                <h4 class="display-4">Hands On Autoencoder  </h4>
+               
+            </div>
 
             <div class="row cardrow">
                 <div class="col-md-6">
                     <div class="card" >
                         <div class="card-header">
-                            Data Comprestion
+                            <h3><strong>Data Compression</strong> </h3>
                         </div>
-                        <div class="card-body">
-                            <h4 class="card-title">Image Compresion Demonstraction <a href="{% url 'Encoder Size' %}" class="stretched-link"></a></h4>
-                            <p class="card-text">
-                                Autoencoders are user for Compresion tasks For example <br>
-                                We can compress HD images into samller size or embidings<br>
-                                This may be utalized for send compresed images via low banwidth<br>and on resiving the model
-                                reconstructs the original Image(with some amount of accurecy loss)
-                            </p>
+                        <img class="card-img" src="{% static 'images/comp1.jpg' %}" alt="Card image">
+                        <div class="card-img-overlay">
+                            <div class="card-body"></div> 
                         </div>
                         <div class="card-footer text-muted">
-                            Footer
+                            <h4 class="card-title">Image Compresion Demonstraction <a href="{% url 'Encoder Size' %}" class="stretched-link"></a></h4>
+                                <p class="card-text">
                         </div>
                     </div>
+
                 </div>
                 <div class="col-md-6">
-                   <div class="card" >
+
+                    <div class="card" >
                         <div class="card-header">
-                            Noice Removel
+                            <h3><strong>Noice Reducation</strong> </h3>
                         </div>
-                        <div class="card-body">
-                            <h4 class="card-title">Image Compresion Demonstraction <a href="{% url 'Encoder Noice' %}" class="stretched-link"></a></h4>
-                            <p class="card-text">
-                                Autoencoders are user for Compresion tasks For example <br>
-                                We can compress HD images into samller size or embidings<br>
-                                This may be utalized for send compresed images via low banwidth<br>and on resiving the model
-                                reconstructs the original Image(with some amount of accurecy loss)
-                            </p>
+                        <img class="card-img" src="{% static 'images/comp1.jpg' %}" alt="Card image">
+                        <div class="card-img-overlay">
+                            <div class="card-body"></div> 
                         </div>
                         <div class="card-footer text-muted">
-                            Footer
+                            <h4 class="card-title">Noice Reducation Demonstraction <a href="{% url 'Encoder Noice' %}" class="stretched-link"></a></h4>
+                            <p class="card-text">
                         </div>
                     </div>
+
+
+
+                   
                 </div>
             </div>
 
