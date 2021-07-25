@@ -195,17 +195,26 @@
                                     
                                 </div>
                                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                    <div class="list-group">
-                                        <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
-                                      
-                                        
-                                        <a href="#" class="list-group-item list-group-item-action list-group-item-light">This is a primary list group item</a>
-                                        <a href="#" class="list-group-item list-group-item-action list-group-item-light">This is a secondary list group item</a>
-                                        <a href="#" class="list-group-item list-group-item-action list-group-item-light">This is a success list group item</a>
-                                        <a href="#" class="list-group-item list-group-item-action list-group-item-light">This is a danger list group item</a>
-                                        <a href="#" class="list-group-item list-group-item-action list-group-item-light">This is a warning list group item</a>
-                                       
-                                      </div>
+                                    <div class="row  list-group-item list-group-item-action list-group-item-light">
+                                                <input class="form-check-input model" type="radio" name="exampleRadios" id="exampleRadios11" value="FasionCNN_64_decay1e-06_" checked>
+                                                <label class="form-check-label model2" for="exampleRadios11">
+                                                    Default Radio
+                                                </label>
+                                            </div>
+                                            <div class="row  list-group-item list-group-item-action list-group-item-light">
+                                                <input class="form-check-input model" type="radio" name="exampleRadios" id="exampleRadios22" value="ancoder_dense_0_epochs_3_neck_2_time_">
+                                                <label class="form-check-label model2" for="exampleRadios22">
+                                                    Default Radio 2
+                                                </label>
+                                            </div>
+                                            
+                                            <div class="row  list-group-item list-group-item-action list-group-item-light">
+                                                <input class="form-check-input model " type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
+                                                <label class="form-check-label model2 " for="exampleRadios3">
+                                                    Default Radio 3
+                                                </label>
+    
+                                            </div>
                                 </div>
                                
                               </div>
@@ -303,7 +312,7 @@
                                     Neck
                                 </div>
                                 <div class="card-body">
-                                    <img src="data:imge/png;base64, {{neckimg|safe}} " height="300px" width="100%"  >
+                                    <img src="" id='botneck' height="300px" width="100%"  >
                                 </div>
                                 <div class="card-footer text-muted">
                                     Footer 
@@ -389,8 +398,14 @@
             // This function is for the the original Image
             console.log("MMMMMMMMMM");
             var name = $("input[name='exampleRadios']:checked").attr("value");
+            var list = name.split("_");
+            var len = list.length;
+            var size = list[len-3];
+            console.log("{{{{{_____---> ",list,size);
+
+
             //name = 'ancoder_dense_0_epochs_3_neck_2_time_';
-            obj = JSON.stringify({"name":name});
+            obj = JSON.stringify({"name":name,"size":size});
             var string = 'http://127.0.0.1:8000/api/?name='+obj;
             console.log("string  : ",string);
             var data = await fetch(string);
@@ -398,19 +413,28 @@
             console.log("d2 : ",d2);
             var val = d2['rep_img'];
             var orgimg = d2['img'];
+            var botneck = d2['bot'];
             
             orgimg = JSON.parse(orgimg);
             val = JSON.parse(val);
+            botneck = JSON.parse(botneck);
+
 
             fir = 'data:image/png;base64,';
             str = fir.concat(val);
             str2 = fir.concat(orgimg);
+            str3 = fir.concat(botneck);
+
             document.getElementById('refimg').setAttribute(
                 'src',str
             );
 
             document.getElementById('predimg').setAttribute(
                 'src',str2
+            );
+
+            document.getElementById('botneck').setAttribute(
+                'src',str3
             );
            
       

@@ -1,6 +1,7 @@
 from re import I
 from django.apps import AppConfig
 import tensorflow as tf
+print('verstion :::::::::::: ',tf.__version__)
 import random
 
 
@@ -20,17 +21,21 @@ class AutoencoderConfig(AppConfig):
     name = 'Autoencoder'
     
     def loadModel(name):
-        print("Nme : ",name)
+        
         model = tf.keras.models.load_model("Api\\Models\\"+name)
-        
-        model_bottelneck = tf.keras.models.load_model("Api\\Models\\"+name+"enco")
+        path22 = "Api\\Models\\"+name+"enco"
+        print("Nme : ",path22)
+        #path22 = 'Api/Models/abcde'
+        model_bottelneck = tf.keras.models.load_model(path22)
         pred = model_bottelneck.predict(x_test)
-        
-        return [model,[pred,y_test]]
+        print("><<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>.Pred : ",pred.shape)
+        return [model,[pred[:,0,0,:],y_test],model_bottelneck]
   
     def get_img():
        
         global x_test
         ind = random.randint(0,len(x_test)-1)
       
-        return x_test[ind]      
+        return x_test[ind]   
+    
+    
