@@ -166,13 +166,13 @@
                                         <div class="form-check" >
                                        
                                             <div class="row  list-group-item list-group-item-action list-group-item-light">
-                                                <input class="form-check-input model" type="radio" name="exampleRadios" id="exampleRadios1" value="ancoder_dense_0_epochs_3_neck_64_time_" checked>
+                                                <input class="form-check-input model" type="radio" name="exampleRadios" id="exampleRadios1" value="DNN_Num_ancoder_dense_0_epochs_3_neck_64_time_" checked>
                                                 <label class="form-check-label model2" for="exampleRadios1">
                                                     Default Radio
                                                 </label>
                                             </div>
                                             <div class="row  list-group-item list-group-item-action list-group-item-light">
-                                                <input class="form-check-input model" type="radio" name="exampleRadios" id="exampleRadios2" value="ancoder_dense_0_epochs_3_neck_2_time_">
+                                                <input class="form-check-input model" type="radio" name="exampleRadios" id="exampleRadios2" value="DNN_Num_ancoder_dense_0_epochs_3_neck_2_time_">
                                                 <label class="form-check-label model2" for="exampleRadios2">
                                                     Default Radio 2
                                                 </label>
@@ -196,7 +196,7 @@
                                 </div>
                                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                                     <div class="row  list-group-item list-group-item-action list-group-item-light">
-                                                <input class="form-check-input model" type="radio" name="exampleRadios" id="exampleRadios11" value="FasionCNN_64_decay1e-06_" checked>
+                                                <input class="form-check-input model" type="radio" name="exampleRadios" id="exampleRadios11" value="CNN_Fas_64_decay1e-06_" checked>
                                                 <label class="form-check-label model2" for="exampleRadios11">
                                                     Default Radio
                                                 </label>
@@ -234,12 +234,10 @@
                         
                         <div class="card">
                             <div class="card-header">
-                                
-                                    
-                                    <button class="btn btn-primary changeimg" type="submit" id='mainimgbut' >
+                                  <button class="btn btn-primary changeimg" type="submit"         id='mainimgbut' >
                                         Change Image
-                                    </button>
-                                
+                                    </button>   
+
                             </div>
                             <div class="card-body">
                                 <div class="row">
@@ -247,7 +245,17 @@
                                 </div>
                             </div>
                             <div class="card-footer text-muted">
-                                Footer
+                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                            
+                                            <label class="btn btn-outline-dark active">
+                                                <input type="radio" name="options" id="option1" value='digits' onclick="firstimg(this.id)" autocomplete="off" checked> Digits
+                                            </label>
+                                            <label class="btn btn-outline-dark">
+                                                <input type="radio" name="options" id="option2" onclick="firstimg('fashion')" value = 'fashion' autocomplete="off"> Fashion
+                                            </label>
+                                          
+                                        
+                                        </div>
                             </div>
                         </div>
                                     
@@ -365,9 +373,13 @@
 
     <script>
         
-        async function firstimg(){
+        async function firstimg(option='digit'){
             // This function is for the the original Image
-            const data = await fetch('http://127.0.0.1:8000/api/img');
+            //var imtype = $("input[name='options']:checked").attr("value");
+            
+            console.log("Type:::::::::::",option);
+            var obj = JSON.stringify({"opt":option});
+            const data = await fetch('http://127.0.0.1:8000/api/img?opt='+obj);
             const d2 = await data.json();
             var val = d2['org'];
             //console.log('valllllll : ',val);
@@ -387,6 +399,13 @@
         $('#mainimgbut').click(function call(){
             firstimg();
         });
+        
+        $('#option1').change(function() {
+            firstimg();
+        });
+        $('#option2').change(function() {
+            firstimg("fashion");
+        }); 
         $(document).ready(function(){
             firstimg();
         })

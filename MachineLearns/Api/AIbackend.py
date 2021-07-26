@@ -52,6 +52,7 @@ def neck_img(img):
     
     
 def plot_images_encoded_in_latent_space(latent_representations,sample_labels):
+    print("Getting Latednt")
     latent_representations = np.array(latent_representations)
     sample_labels = np.array(sample_labels)
     plt.switch_backend("AGG")
