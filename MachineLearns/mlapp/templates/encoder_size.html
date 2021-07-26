@@ -373,7 +373,8 @@
 
     <script>
         
-        async function firstimg(option='digit'){
+        option = 'digit';
+        async function firstimg(){
             // This function is for the the original Image
             //var imtype = $("input[name='options']:checked").attr("value");
             
@@ -401,10 +402,12 @@
         });
         
         $('#option1').change(function() {
+            option = 'digit';
             firstimg();
         });
         $('#option2').change(function() {
-            firstimg("fashion");
+            option = 'fashion';
+            firstimg();
         }); 
         $(document).ready(function(){
             firstimg();
