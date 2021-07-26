@@ -3,7 +3,7 @@ from django.apps import AppConfig
 import tensorflow as tf
 print('verstion :::::::::::: ',tf.__version__)
 import random
-
+import numpy as np
 
 print("clalalalalalala")
 
@@ -55,7 +55,7 @@ class AutoencoderConfig(AppConfig):
             return [model,[pred,y_test],model_bottelneck]
         
         
-    def get_img(opt):
+    def get_img(opt,noice = 'False'):
         
         global x_test,y_test
         if opt == 'digit':
@@ -66,7 +66,14 @@ class AutoencoderConfig(AppConfig):
             y_test = y_test4
         
         ind = random.randint(0,len(x_test)-1)
-      
-        return x_test[ind]   
+
+        if noice == 'False':
+            return x_test[ind] 
+        else:
+            noise_factor = 0.2
+
+         
+            #x_test = x_test + noise_factor * np.random.normal(loc = 0., scale = 1., size = x_test.shape)
+            return x_test[ind]  + noise_factor * np.random.normal(loc = 0., scale = 1., size = x_test[ind].shape)
     
     

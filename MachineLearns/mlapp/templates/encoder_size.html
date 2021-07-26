@@ -234,9 +234,13 @@
                         
                         <div class="card">
                             <div class="card-header">
-                                  <button class="btn btn-primary changeimg" type="submit"         id='mainimgbut' >
+                                    <button class="btn btn-primary changeimg" type="submit"    id='mainimgbut' >
                                         Change Image
                                     </button>   
+                                    
+                                    <!-- <button class="btn btn-primary changeimg" type="submit"         id='mainimgbut' >
+                                        Add Noice
+                                    </button>    -->
 
                             </div>
                             <div class="card-body">
@@ -379,7 +383,7 @@
             //var imtype = $("input[name='options']:checked").attr("value");
             
             console.log("Type:::::::::::",option);
-            var obj = JSON.stringify({"opt":option});
+            var obj = JSON.stringify({"opt":option,'noice':'False'});
             const data = await fetch('http://127.0.0.1:8000/api/img?opt='+obj);
             const d2 = await data.json();
             var val = d2['org'];

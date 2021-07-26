@@ -91,8 +91,9 @@ class getImage(apiView):
             obj = request.GET.get('opt')
             dict_obj = json.loads(obj)
             opt = dict_obj['opt']
+            noice = dict_obj['noice']
             print("??????????????   Option |||||||||||||||||||| : ",opt)
-            IMAGE = AutoencoderConfig.get_img(opt)
+            IMAGE = AutoencoderConfig.get_img(opt,noice=noice)
             lists2 = IMAGE.reshape((IMAGE.shape[0],IMAGE.shape[1],1)).tolist()
             lists2 = ai.make_img(lists2)
             img2 = IMAGE
