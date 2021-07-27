@@ -31,24 +31,21 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
-                <a class="navbar-brand" href="#"><strong>Machine Learns</strong> </a>
+                <a class="navbar-brand" href="/"><strong>Machine Learns</strong> </a>
               
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                   <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li class="nav-item active">
-                      <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                      <a class="nav-link" href="/encoder">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link disabled" href="#">Disabled</a>
-                    </li>
+                        <a class="nav-link" href="#">API</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Blogs</a>
+                      </li>
                   </ul>
-                  <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                  </form>
+                  
                 </div>
             </nav>
             <!-- Lower body Jumbo-->
@@ -270,7 +267,7 @@
                 </div>
 
 
-                <div class="container-fluid " id="result" >
+                <div class="container-fluid " id="result_togle" style="display: none;">
                     <header>
                         
                         <h2 class="sect1"><strong>Results</strong></h2> 
@@ -376,7 +373,7 @@
         option = 'digit';
         async function firstimg(){
           
-            
+            reset();
             console.log("Type:::::::::::",option);
             var obj = JSON.stringify({"opt":option,'noice':'True'});
             const data = await fetch('http://127.0.0.1:8000/api/img?opt='+obj);
@@ -401,10 +398,12 @@
         });
         
         $('#option1').change(function() {
+            
             option = 'digit';
             firstimg();
         });
         $('#option2').change(function() {
+            
             option = 'fashion';
             firstimg();
         }); 
@@ -460,9 +459,14 @@
            
       
         };
+   
+        function reset() {
+            document.getElementById('result_togle').style.display='none';
+        }
 
         $('#subbut').click(function call(){
             otherimg();
+            document.getElementById('result_togle').style.display='block';
         });
 
        
