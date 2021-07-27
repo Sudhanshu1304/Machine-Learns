@@ -426,7 +426,7 @@
 
 
             //name = 'ancoder_dense_0_epochs_3_neck_2_time_';
-            obj = JSON.stringify({"name":name,"size":size});
+            var obj = JSON.stringify({"name":name,"size":size,'page':'noice'});
             var string = 'http://127.0.0.1:8000/api/?name='+obj;
             console.log("string  : ",string);
             var data = await fetch(string);

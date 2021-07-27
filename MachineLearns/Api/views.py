@@ -7,6 +7,10 @@ from rest_framework.views import APIView
 from matplotlib import pyplot as plt
 from . import AIbackend as ai
 
+noiceimg = None
+noiceimg_j = None
+digitimg = None
+digitimg_j = None
 
 def pred_bottelneck(model,img,name,shape=(8,8)):
     if name == 'CNN':
@@ -39,7 +43,8 @@ def pred_bottelneck(model,img,name,shape=(8,8)):
 class apiView(APIView):
     
     def get(self,request):
-        global IMAGE2,img2
+        #global IMAGE2,img2
+        global noiceimg,digitimg
         print("Api Called")
         if request.method == 'GET':
             
@@ -51,6 +56,16 @@ class apiView(APIView):
             name = dict_obj['name']
             n_name = name.split('_')[0]
             size = int(dict_obj['size'])
+            page = dict_obj['page']
+            
+            
+            
+            if page == 'digit':
+                IMAGE2 = digitimg_j
+                img2 = digitimg
+            else:
+                IMAGE2 = noiceimg_j
+                img2 = noiceimg
      
             org = IMAGE2
             
@@ -85,22 +100,31 @@ class apiView(APIView):
 class getImage(apiView):
     
     def get(self, request):
-        global IMAGE2,img2
+        global noiceimg,digitimg,noiceimg_j,digitimg_j
         print("\nCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n")
         if request.method == 'GET':
             obj = request.GET.get('opt')
             dict_obj = json.loads(obj)
             opt = dict_obj['opt']
             noice = dict_obj['noice']
-            print("??????????????   Option |||||||||||||||||||| : ",opt)
+           
+            print("??????????????   Option |||||||||||||||||||| : ",opt,noice)
             IMAGE = AutoencoderConfig.get_img(opt,noice=noice)
             lists2 = IMAGE.reshape((IMAGE.shape[0],IMAGE.shape[1],1)).tolist()
             lists2 = ai.make_img(lists2)
             img2 = IMAGE
+           
             
             org = json.dumps(lists2)
             IMAGE2 = org
-         
+
+            if noice=='True':
+                noiceimg = img2
+                noiceimg_j = IMAGE2
+            else:
+                digitimg = img2
+                digitimg_j = IMAGE2
+
             pred = {"org":org}
             
         return JsonResponse(pred)
