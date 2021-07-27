@@ -12,6 +12,14 @@
     background-color: aqua;
 } */
 
+.jumbotron{
+    padding-top: 4%;
+    /* padding-bottom: 2%; */
+    margin-top: 60px;
+    
+
+}
+
 .header{
     margin-top: 40px;
 }
@@ -23,7 +31,7 @@
 
 .rowimg{
     /* height: 30vh !important; */
-    background-color: aqua;
+    background-color: rgb(255, 94, 0);
 }
 
 .model{

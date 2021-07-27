@@ -49,17 +49,27 @@
                 </div>
             </nav>
             <!-- Lower body Jumbo-->
-
-            
-            <div class="jumbotron jumbotron-fluid ">
+            <div class="jumbotron jumbotron-fluid">
                 <div class="container">
-                  <h1 class="display-4 "><strong>Image Compresion </strong> </h1>
-                    <p class="lead"> <br>
-                        This is ML Laboratory where you can play/vizvalize  the concepts.
-                    
+                    <h1 class="display-5">Image Compresion Demonstraction</h1>
+                    <p class="lead"><h4 class="display-6">Experimentation Lab  </h4></p>
+                    <hr class="my-2">
+                    <p>Here you will learn how autoencoders perform in different configrations and its various aspects</p>
+                    <p class="lead">
+                      
                     </p>
                 </div>
             </div>
+            
+            <!-- <div class="jumbotron jumbotron-fluid ">
+                <div class="container">
+                  <h1 class="display-5 "><strong>Experimentation Lab</strong> </h1>
+                    <p class="lead"> <br>
+                        <strong>Image Compresion Demonstraction </strong>
+                    
+                    </p>
+                </div>
+            </div> -->
             
             <!-- Lower body Jumbo-->
 
@@ -67,7 +77,7 @@
 
                 <div class="col-md-6">
                     
-                    <div class="card cousalcard">
+                    <div class="card cousalcard" style="height: 50vh;">
                         <div class="card-header">
                             Applications
                         </div>
@@ -119,9 +129,26 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste culpa nesciunt error eligendi assumenda accusamus cupiditate, repellendus officia magnam totam impedit optio quae dignissimos commodi delectus incidunt ad vel nam?
-                    <br>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt voluptatum commodi reprehenderit fugit mollitia, dolor quaerat beatae? Perferendis, tempora maxime? Delectus iste sapiente tempore facilis nobis optio ducimus consequatur magni?
+                    <p> 
+                        Using autoencoders we can compress a image of size <strong>28X28 (784 pixles)</strong>  into <strong>4X4 (16 pixles)</strong> . Basically they can transform a high-dimensional space to a lower dimensional space. <br>
+                        In this model, the input and the output is the same image. <br>
+                    </p>
+                    <p>
+                        So the encoder first encodes the original image into a lower dimensional <strong>encoding</strong> which is then decoded by th decoder to form the real image. <br>
+                        Here the loss function tries two miminize the differene between teh input and the output image. And hense we get a decoder which can create original image from the encoding.
+
+                    </p>
+
+                    <p>
+                       <strong>About this Lab</strong> <br>
+                       In this lab we have pretrained models for you to tinker with. <br>
+                       The models are trained on <strong>
+                        Mnist Handwritten digits and Mnist Fashion datasets
+                       </strong> . <br>
+
+                    </p>
+                    
+                    
                 </div>
             </div>
 
