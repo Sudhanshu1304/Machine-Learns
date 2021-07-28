@@ -1,6 +1,14 @@
-.jumbotron{
+/* .jumbotron{
     padding-top: 2%;
     padding-bottom: 2%;
+    margin-top: 60px;
+    
+
+} */
+
+.jumbotron{
+    padding-top: 4%;
+    /* padding-bottom: 2%; */
     margin-top: 60px;
     
 
@@ -15,4 +23,10 @@
 .cardrow{
     margin-top: 50px;
     margin-bottom: 50px;
+}
+
+.sect1{
+    margin-top: 5px;
+    border-bottom: 5px solid #7a0000;
+    
 }

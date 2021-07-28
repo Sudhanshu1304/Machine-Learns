@@ -134,10 +134,10 @@
 
                         <p> 
                             Using autoencoders we can compress a image of size <strong>28X28 (784 pixles)</strong>  into <strong>4X4 (16 pixles)</strong> . Basically they can transform a high-dimensional space to a lower dimensional space. <br>
-                            In this model, the input and the output is the same image. <br>
+                            In this model, input and output is the same image. <br>
                         </p>
                         <p>
-                            So the encoder first encodes the original image into a lower dimensional <strong>encoding</strong> which is then decoded by th decoder to form the real image. <br>
+                            The encoder first encodes the original image into a lower dimensional <strong>encoding</strong> which is then decoded by th decoder to form the real image. <br>
                             Here the loss function tries to miminize the differene between teh input and the output image. And hense we get a decoder which can create original image from the encoding.
     
                         </p>
@@ -341,20 +341,14 @@
                         
                         <h2 class="sect1"><strong>Results</strong></h2> 
                     </header>
-                    <!-- <div class="row">
-                        <img src="data:imge/png;base64, {{rep_img|safe}} " height="300px"  >
-                    </div> -->
+                 
 
-                    <div class="row resultsec">
-                        <div class="col-md-6">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi inventore quasi facilis nesciunt ut sapiente vitae nam quod officia! Aliquam quisquam molestiae labore blanditiis saepe nisi, est eum quia eius?
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit optio voluptas laudantium hic harum. Cupiditate, dignissimos earum? Atque et ducimus, debitis facilis laudantium veniam vel quidem earum nobis repellat neque!
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti commodi, quo itaque omnis, mollitia deleniti et sit odio nam iste incidunt? Sapiente, natus voluptatem? Quasi, iusto mollitia! Aut, eum natus.                           
-                        </div>
-                        <div class="col-md-6">
-                            <div class="card">
+                    <div class="row resultsec" style="margin-top: 15px;">
+                        <div class="col-lg-6">
+                            
+                            <div class="card" style="width: 100%;margin-top: 15px;">
                                 <div class="card-header">
-                                    Dimentional Representation
+                                    <strong>Latent Space</strong>
                                 </div>
                                 <div class="card-body">
                                     <img src="" id='refimg' height="300px" width="100%" >
@@ -363,14 +357,39 @@
                                     Footer
                                 </div>
                             </div>
+                             
+                        </div>
+                        <div class="col-lg-6">
+                            
+                            <div style="width: 100%;margin-top: 15px;" >
+                                <p>
+                                    <strong>Latent</strong> means <strong>hidden</strong> i.e Hidden Representation.
+                                    Latent space is a compresed representation of our original data. It store  importent characteristics ( features ) of the input data.
+                                </p>
+                                <p>
+                                    In the graph of the latent space we can see that there are groups of similar colors . These points represents individual data points ( Numbers|Clothes in our case ).
+                                    For example,  a individual  red dot may represet <strong>9</strong> and  blue dot as <strong>6</strong> e.t.c .
+    
+    
+                                </p>
+    
+                                <p>
+                                    
+                                    You will notice that latent representation with bottleneck dimensions <strong>( 64X64 )</strong>
+                                    is clustered in a small region without any proper distingstion , this is because we are ploting a <strong>64 </strong> dimensional plot in a <strong>2</strong> dimensional graph.
+                                    
+                                    Hence if you choose a model with bottelneck as <strong>2D</strong>, you will be able to see the distingstion properly (the predicted image will not be good enoug though as we will loose a lot of information).
+                                </p>
+                            </div>
+                            
                             
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-4">
-                            <div class="card">
+                            <div class="card" style="margin-top: 15px;">
                                 <div class="card-header">
-                                    Originl
+                                    Originl Image
                                 </div>
                                 <div class="card-body">
                                     <img src="" id='mainimg2' height="300px" width="100%"  >
@@ -381,9 +400,9 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="card">
+                            <div class="card" style="margin-top: 15px;">
                                 <div class="card-header">
-                                    Neck
+                                    Bottleneck
                                 </div>
                                 <div class="card-body">
                                     <img src="" id='botneck' height="300px" width="100%"  >
@@ -394,9 +413,9 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="card">
+                            <div class="card" style="margin-top: 15px;">
                                 <div class="card-header">
-                                    Predicted
+                                    Predicted Image
                                 </div>
                                 <div class="card-body">
                                     
@@ -486,15 +505,12 @@
 
         async function otherimg(){
             // This function is for the the original Image
-            console.log("MMMMMMMMMM");
+           
             var name = $("input[name='exampleRadios']:checked").attr("value");
             var list = name.split("_");
             var len = list.length;
             var size = list[len-3];
-            console.log("{{{{{_____---> ",list,size);
 
-
-            //name = 'ancoder_dense_0_epochs_3_neck_2_time_';
             obj = JSON.stringify({"name":name,"size":size,'page':'digit'});
             var string = 'http://127.0.0.1:8000/api/?name='+obj;
             console.log("string  : ",string);

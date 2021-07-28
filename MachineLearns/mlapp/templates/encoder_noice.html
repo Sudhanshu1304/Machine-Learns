@@ -51,12 +51,14 @@
             <!-- Lower body Jumbo-->
 
             
-            <div class="jumbotron jumbotron-fluid ">
+            <div class="jumbotron jumbotron-fluid">
                 <div class="container">
-                  <h1 class="display-4 "><strong>Image Compresion </strong> </h1>
-                    <p class="lead"> <br>
-                        This is ML Laboratory where you can play/vizvalize  the concepts.
-                    
+                    <h1 class="display-5">Noice Removal Demonstraction</h1>
+                    <p class="lead"><h4 class="display-6">Experimentation Lab  </h4></p>
+                    <hr class="my-2">
+                    <p>Here you will learn how autoencoders perform in different configrations and its various aspects</p>
+                    <p class="lead">
+                      
                     </p>
                 </div>
             </div>
@@ -119,237 +121,274 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste culpa nesciunt error eligendi assumenda accusamus cupiditate, repellendus officia magnam totam impedit optio quae dignissimos commodi delectus incidunt ad vel nam?
-                    <br>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt voluptatum commodi reprehenderit fugit mollitia, dolor quaerat beatae? Perferendis, tempora maxime? Delectus iste sapiente tempore facilis nobis optio ducimus consequatur magni?
+                    
+                    <div class="container" style="padding-top: 20px;">
+
+                        <p> 
+                            Using autoencoders we can compress a image of size <strong>28X28 (784 pixles)</strong>  into <strong>4X4 (16 pixles)</strong> . Basically they can transform a high-dimensional space to a lower dimensional space. <br>
+                            In this model, input and output is the same image. <br>
+                        </p>
+                        <p>
+                            The encoder first encodes the original image into a lower dimensional <strong>encoding</strong> which is then decoded by th decoder to form the real image. <br>
+                            Here the loss function tries to miminize the differene between teh input and the output image. And hense we get a decoder which can create original image from the encoding.
+    
+                        </p>
+
+                        <p>
+                            This Lab consists of pretrained models for you to tinker with. The models are trained on <strong> 
+                                Mnist Handwritten digits and Mnist Fashion datasets
+                               </strong>
+                        </p>
+                        
+                    </div>
+
                 </div>
             </div>
 
             <!-- Card View section-->
             <div class="container-fluid">
                 
-                <header>
-                <h2 class="sect1"><strong>Results</strong></h2> 
-            </header>
-            <div class="row row1" >
-               
+                 <header>
+                    <h2 class="sect1" style="padding-top: 50px;"><strong>Tinker Section</strong></h2> 
+                </header>
+
+
+
+                <div class="row row1" >
                 
-                <div class="col-md-6">
                     
-                    <div class="card">
-                        <div class="card-header">
-                            <ul class="nav nav-tabs" id="myTab" role="tablist">
-                               
-                                <li class="nav-item">
-                                  <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true"><strong>DNN</strong></a>
-                                </li>
-                                <li class="nav-item">
-                                  <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false"><strong>CNN</strong></a>
-                                </li>
-                                <li class="nav-item">
-                                    <a  class="nav-link disabled">
-                                        <strong>Model Selection</strong> 
-                                    </a>
-                                </li>
-                              </ul>
-                        </div>
-                     
-                        <div class="card-body">
-                            <div class="tab-content" id="myTabContent">
-                                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-
-                                    
-
-                                        <div class="form-check" >
-                                       
-                                            <div class="row  list-group-item list-group-item-action list-group-item-light">
-                                                <input class="form-check-input model" type="radio" name="exampleRadios" id="exampleRadios1" value="DNN_Num_ancoder_dense_0_epochs_3_neck_64_time_" checked>
-                                                <label class="form-check-label model2" for="exampleRadios1">
-                                                    Default Radio
-                                                </label>
-                                            </div>
-                                            <div class="row  list-group-item list-group-item-action list-group-item-light">
-                                                <input class="form-check-input model" type="radio" name="exampleRadios" id="exampleRadios2" value="DNN_Num_ancoder_dense_0_epochs_3_neck_2_time_">
-                                                <label class="form-check-label model2" for="exampleRadios2">
-                                                    Default Radio 2
-                                                </label>
-                                            </div>
-                                            
-                                            <div class="row  list-group-item list-group-item-action list-group-item-light">
-                                                <input class="form-check-input model " type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
-                                                <label class="form-check-label model2 " for="exampleRadios3">
-                                                    Default Radio 3
-                                                </label>
-    
-                                            </div>
-                                           
-                                            
-                                        
-    
-                                        </div>
-                                        <!-- <button type="submit">Submit</button> -->
-                                    
-                                    
-                                </div>
-                                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                    <div class="row  list-group-item list-group-item-action list-group-item-light">
-                                                <input class="form-check-input model" type="radio" name="exampleRadios" id="exampleRadios11" value="CNN_Fas_64_decay1e-06_" checked>
-                                                <label class="form-check-label model2" for="exampleRadios11">
-                                                    Default Radio
-                                                </label>
-                                            </div>
-                                            <div class="row  list-group-item list-group-item-action list-group-item-light">
-                                                <input class="form-check-input model" type="radio" name="exampleRadios" id="exampleRadios22" value="ancoder_dense_0_epochs_3_neck_2_time_">
-                                                <label class="form-check-label model2" for="exampleRadios22">
-                                                    Default Radio 2
-                                                </label>
-                                            </div>
-                                            
-                                            <div class="row  list-group-item list-group-item-action list-group-item-light">
-                                                <input class="form-check-input model " type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
-                                                <label class="form-check-label model2 " for="exampleRadios3">
-                                                    Default Radio 3
-                                                </label>
-    
-                                            </div>
-                                </div>
-                               
-                              </div>
-                        </div>
-                        <div class="card-footer text-muted">
-                            <button class="btn btn-primary data" id="subbut"  type="submit" >Submit</button>
-                        </div>
-
-                        
-                   
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    
-                    <div class="row rowimg">
+                    <div class="col-md-6">
                         
                         <div class="card">
                             <div class="card-header">
-                                  <button class="btn btn-primary changeimg" type="submit"         id='mainimgbut' >
-                                        Change Image
-                                    </button>   
-
+                                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                
+                                    <li class="nav-item">
+                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true"><strong>DNN</strong></a>
+                                    </li>
+                                    <li class="nav-item">
+                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false"><strong>CNN</strong></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a  class="nav-link disabled">
+                                            <strong>Model Selection</strong> 
+                                        </a>
+                                    </li>
+                                </ul>
                             </div>
+                        
                             <div class="card-body">
-                                <div class="row">
-                                    <img src="" id ='mainimg' height="300px" width="100%"  >
+                                <div class="tab-content" id="myTabContent">
+                                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+                                        
+
+                                            <div class="form-check" >
+                                        
+                                                <div class="row  list-group-item list-group-item-action list-group-item-light">
+                                                    <input class="form-check-input model" type="radio" name="exampleRadios" id="exampleRadios1" value="DNN_Num_ancoder_dense_0_epochs_3_neck_64_time_" checked>
+                                                    <label class="form-check-label model2" for="exampleRadios1">
+                                                        Default Radio
+                                                    </label>
+                                                </div>
+                                                <div class="row  list-group-item list-group-item-action list-group-item-light">
+                                                    <input class="form-check-input model" type="radio" name="exampleRadios" id="exampleRadios2" value="DNN_Num_ancoder_dense_0_epochs_3_neck_2_time_">
+                                                    <label class="form-check-label model2" for="exampleRadios2">
+                                                        Default Radio 2
+                                                    </label>
+                                                </div>
+                                                
+                                                <div class="row  list-group-item list-group-item-action list-group-item-light">
+                                                    <input class="form-check-input model " type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
+                                                    <label class="form-check-label model2 " for="exampleRadios3">
+                                                        Default Radio 3
+                                                    </label>
+        
+                                                </div>
+                                            
+                                                
+                                            
+        
+                                            </div>
+                                            <!-- <button type="submit">Submit</button> -->
+                                        
+                                        
+                                    </div>
+                                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                        <div class="row  list-group-item list-group-item-action list-group-item-light">
+                                                    <input class="form-check-input model" type="radio" name="exampleRadios" id="exampleRadios11" value="CNN_Fas_64_decay1e-06_" checked>
+                                                    <label class="form-check-label model2" for="exampleRadios11">
+                                                        Default Radio
+                                                    </label>
+                                                </div>
+                                                <div class="row  list-group-item list-group-item-action list-group-item-light">
+                                                    <input class="form-check-input model" type="radio" name="exampleRadios" id="exampleRadios22" value="ancoder_dense_0_epochs_3_neck_2_time_">
+                                                    <label class="form-check-label model2" for="exampleRadios22">
+                                                        Default Radio 2
+                                                    </label>
+                                                </div>
+                                                
+                                                <div class="row  list-group-item list-group-item-action list-group-item-light">
+                                                    <input class="form-check-input model " type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
+                                                    <label class="form-check-label model2 " for="exampleRadios3">
+                                                        Default Radio 3
+                                                    </label>
+        
+                                                </div>
+                                    </div>
+                                
                                 </div>
                             </div>
                             <div class="card-footer text-muted">
-                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                            
-                                            <label class="btn btn-outline-dark active">
-                                                <input type="radio" name="options" id="option1" value='digits' onclick="firstimg(this.id)" autocomplete="off" checked> Digits
-                                            </label>
-                                            <label class="btn btn-outline-dark">
-                                                <input type="radio" name="options" id="option2" onclick="firstimg('fashion')" value = 'fashion' autocomplete="off"> Fashion
-                                            </label>
-                                          
-                                        
-                                        </div>
+                                <button class="btn btn-primary data" id="subbut"  type="submit" >Submit</button>
                             </div>
-                        </div>
-                                    
 
+                            
+                    
+                        </div>
                     </div>
 
-                   
-                            
-                   
-                                
-
-                </div>
-
-
-                <div class="container-fluid " id="result_togle" style="display: none;">
-                    <header>
+                    <div class="col-md-6" style="max-height: fit-content;">
                         
-                        <h2 class="sect1"><strong>Results</strong></h2> 
-                    </header>
-                    <!-- <div class="row">
-                        <img src="data:imge/png;base64, {{rep_img|safe}} " height="300px"  >
-                    </div> -->
-
-                    <div class="row">
-                        <div class="col-md-6">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi inventore quasi facilis nesciunt ut sapiente vitae nam quod officia! Aliquam quisquam molestiae labore blanditiis saepe nisi, est eum quia eius?
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit optio voluptas laudantium hic harum. Cupiditate, dignissimos earum? Atque et ducimus, debitis facilis laudantium veniam vel quidem earum nobis repellat neque!
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti commodi, quo itaque omnis, mollitia deleniti et sit odio nam iste incidunt? Sapiente, natus voluptatem? Quasi, iusto mollitia! Aut, eum natus.                           
-                        </div>
-                        <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-header">
-                                    Dimentional Representation
-                                </div>
-                                <div class="card-body">
-                                    <img src="" id='refimg' height="300px" width="100%" >
-                                </div>
-                                <div class="card-footer text-muted">
-                                    Footer
-                                </div>
-                            </div>
+                        <div class="row rowimg">
                             
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="card">
+                            <div class="card" style="width: 100%;margin-top: 10px;">
                                 <div class="card-header">
-                                    Originl
+                                    <button class="btn btn-primary changeimg" type="submit"   id='mainimgbut' >
+                                            Change Image
+                                        </button>   
+
                                 </div>
                                 <div class="card-body">
-                                    <img src="" id='mainimg2' height="300px" width="100%"  >
+                                    <div class="row">
+                                        <img src="" id ='mainimg' height="300px" width="100%"  >
+                                    </div>
                                 </div>
                                 <div class="card-footer text-muted">
-                                    Footer
+                                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                                
+                                                <label class="btn btn-outline-dark active">
+                                                    <input type="radio" name="options" id="option1" value='digits' onclick="firstimg(this.id)" autocomplete="off" checked> Digits
+                                                </label>
+                                                <label class="btn btn-outline-dark">
+                                                    <input type="radio" name="options" id="option2" onclick="firstimg('fashion')" value = 'fashion' autocomplete="off"> Fashion
+                                                </label>
+                                            
+                                            
+                                            </div>
                                 </div>
                             </div>
+                                        
+
                         </div>
-                        <div class="col-md-4">
-                            <div class="card">
-                                <div class="card-header">
-                                    Neck
-                                </div>
-                                <div class="card-body">
-                                    <img src="" id='botneck' height="300px" width="100%"  >
-                                </div>
-                                <div class="card-footer text-muted">
-                                    Footer 
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card">
-                                <div class="card-header">
-                                    Predicted
-                                </div>
-                                <div class="card-body">
+
+                    
+                                
+                    
                                     
-                                    <img src="" id='predimg' height="300px" width="100%"  >
-                                </div>
-                                <div class="card-footer text-muted">
-                                    Footer
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
 
 
+                    <div class="container-fluid " id="result_togle" style="display: none;">
+                        <header>
+                            
+                            <h2 class="sect1"><strong>Results</strong></h2> 
+                        </header>
+                        
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-header">
+                                        Dimentional Representation
+                                    </div>
+                                    <div class="card-body">
+                                        <img src="" id='refimg' height="300px" width="100%" >
+                                    </div>
+                                    <div class="card-footer text-muted">
+                                        Footer
+                                    </div>
+                                </div>            
+                            </div>
+                            <div class="col-md-6">
+                                
+                                <div style="width: 100%;margin-top: 15px;" >
+                                <p>
+                                    <strong>Latent</strong> means <strong>hidden</strong> i.e Hidden Representation.
+                                    Latent space is a compresed representation of our original data. It store  importent characteristics ( features ) of the input data.
+                                </p>
+                                <p>
+                                    In the graph of the latent space we can see that there are groups of similar colors . These points represents individual data points ( Numbers|Clothes in our case ).
+                                    For example,  a individual  red dot may represet <strong>9</strong> and  blue dot as <strong>6</strong> e.t.c .
+    
+    
+                                </p>
+    
+                                <p>
+                                    
+                                    You will notice that latent representation with bottleneck dimensions <strong>( 64X64 )</strong>
+                                    is clustered in a small region without any proper distingstion , this is because we are ploting a <strong>64 </strong> dimensional plot in a <strong>2</strong> dimensional graph.
+                                    
+                                    Hence if you choose a model with bottelneck as <strong>2D</strong>, you will be able to see the distingstion properly (the predicted image will not be good enoug though as we will loose a lot of information).
+                                </p>
+                            </div>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="card" style="margin-top: 15px;">
+                                    <div class="card-header">
+                                        Originl
+                                    </div>
+                                    <div class="card-body">
+                                        <img src="" id='mainimg2' height="300px" width="100%"  >
+                                    </div>
+                                    <div class="card-footer text-muted">
+                                        Footer
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card" style="margin-top: 15px;">
+                                    <div class="card-header">
+                                        Neck
+                                    </div>
+                                    <div class="card-body">
+                                        <img src="" id='botneck' height="300px" width="100%"  >
+                                    </div>
+                                    <div class="card-footer text-muted">
+                                        Footer 
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card" style="margin-top: 15px;">
+                                    <div class="card-header">
+                                        Predicted
+                                    </div>
+                                    <div class="card-body">
+                                        
+                                        <img src="" id='predimg' height="300px" width="100%"  >
+                                    </div>
+                                    <div class="card-footer text-muted">
+                                        Footer
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
 
 
 
+
+
+                    </div>
+
+
+                    
                 </div>
-
-
-                
-            </div>
             
             
 
