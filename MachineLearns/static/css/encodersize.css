@@ -1,16 +1,3 @@
-/* body{
-    padding: 0px;
-    margin: 0px;
-}
-
-
-
-#content{
-    overflow-y: scroll;
-    padding-top: 60px;
-    height: 100vh;
-    background-color: aqua;
-} */
 
 .jumbotron{
     padding-top: 4%;
@@ -27,11 +14,14 @@
 .row1{
     /* margin-top: 10%; */
     height: 100vh;
+    padding-top: 20px;
+    margin-top: 10px;;
 }
 
 .rowimg{
     /* height: 30vh !important; */
-    background-color: rgb(255, 94, 0);
+    /* background-color: rgb(255, 94, 0); */
+    /* height: 100%; */
 }
 
 .model{
@@ -48,5 +38,26 @@
 
 
 .sect1{
+    margin-top: 5px;
     border-bottom: 5px solid #7a0000;
+    
+}
+
+
+.modelselect{
+    /* min-height: 50vh; */
+    height: 100%;
+}
+
+
+.bottom{
+    height: 100%;
+    
+    margin-bottom: 2%;
+}
+
+.resultsec{
+    
+    padding-top: 20px;
+    padding-bottom: 20px;
 }

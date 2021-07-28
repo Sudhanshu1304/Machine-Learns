@@ -130,7 +130,7 @@
                 </div>
                 <div class="col-lg-6">
 
-                    <div class="container">
+                    <div class="container" style="padding-top: 20px;">
 
                         <p> 
                             Using autoencoders we can compress a image of size <strong>28X28 (784 pixles)</strong>  into <strong>4X4 (16 pixles)</strong> . Basically they can transform a high-dimensional space to a lower dimensional space. <br>
@@ -141,6 +141,12 @@
                             Here the loss function tries to miminize the differene between teh input and the output image. And hense we get a decoder which can create original image from the encoding.
     
                         </p>
+
+                        <p>
+                            This Lab consists of pretrained models for you to tinker with. The models are trained on <strong> 
+                                Mnist Handwritten digits and Mnist Fashion datasets
+                               </strong>
+                        </p>
                         
                     </div>
 
@@ -152,40 +158,35 @@
                 </div>
             </div>
 
-            <div class="container">
-                
-            </div>
+            
 
             <!-- Card View section-->
-            <div class="container-fluid">
+            <div class="container-fluid " >
                 
                 <header>
                     <h2 class="sect1" style="padding-top: 50px;"><strong>Tinker Section</strong></h2> 
                 </header>
 
 
-                <div class="container">
+                <div class="container-fluid">
                     
-                    <strong><h4>About this Lab</h4> </strong> <br>
-                    
-                        <p>
+                   
+                        
+                        <p style="padding:5px">
                             
-                            In this lab we have pretrained models for you to tinker with.
-                            The models are trained on <strong>
-                             Mnist Handwritten digits and Mnist Fashion datasets
-                            </strong> . 
-                            
-                            <br>
-                            
+
                             <ul>
                                 <li>
-                                    Step 1 : Select any dataset (Fashion/Digits) ,choose a Image.
+                                    <strong>Step 1</strong>  : Select any dataset ( Fashion | Digits ).
                                 </li>
                                 <li>
-                                    Step 2 : Select a Model CNN/DNN 
+                                    <strong>Step 2</strong>  : Choose a Image.
                                 </li>
                                 <li>
-                                    Step 3 : Hit Submit and you can see the Results
+                                    <strong>Step 3</strong>  : Select a Model ( CNN | DNN ) 
+                                </li>
+                                <li>
+                                    <strong>Step 4</strong>  : Hit Submit and you can see the Results
                                 </li>
                             </ul>
         
@@ -193,105 +194,107 @@
                     
                 </div>
 
-            <div class="row row1" >
+            <div class="row row1 bottom" >
                
                 
-                <div class="col-md-6">
+                <div class="col-md-7" style="max-height: fit-content;" >
                     
-                    <div class="card">
-                        <div class="card-header">
-                            <ul class="nav nav-tabs" id="myTab" role="tablist">
-                               
-                                <li class="nav-item">
-                                  <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true"><strong>DNN</strong></a>
-                                </li>
-                                <li class="nav-item">
-                                  <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false"><strong>CNN</strong></a>
-                                </li>
-                                <li class="nav-item">
-                                    <a  class="nav-link disabled">
-                                        <strong>Model Selection</strong> 
-                                    </a>
-                                </li>
-                              </ul>
-                        </div>
-                     
-                        <div class="card-body">
-                            <div class="tab-content" id="myTabContent">
-                                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-
-                                    
-
-                                        <div class="form-check" >
-                                       
-                                            <div class="row  list-group-item list-group-item-action list-group-item-light">
-                                                <input class="form-check-input model" type="radio" name="exampleRadios" id="exampleRadios1" value="DNN_Num_ancoder_dense_0_epochs_3_neck_64_time_" checked>
-                                                <label class="form-check-label model2" for="exampleRadios1">
-                                                    Default Radio
-                                                </label>
-                                            </div>
-                                            <div class="row  list-group-item list-group-item-action list-group-item-light">
-                                                <input class="form-check-input model" type="radio" name="exampleRadios" id="exampleRadios2" value="DNN_Num_ancoder_dense_0_epochs_3_neck_2_time_">
-                                                <label class="form-check-label model2" for="exampleRadios2">
-                                                    Default Radio 2
-                                                </label>
-                                            </div>
-                                            
-                                            <div class="row  list-group-item list-group-item-action list-group-item-light">
-                                                <input class="form-check-input model " type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
-                                                <label class="form-check-label model2 " for="exampleRadios3">
-                                                    Default Radio 3
-                                                </label>
+                    <!-- //<div class="row"> -->
+                        <div class="card" style="width: 100%;margin-top: 10px;">
+                            <div class="card-header">
+                                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                   
+                                    <li class="nav-item">
+                                      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true"><strong>DNN</strong></a>
+                                    </li>
+                                    <li class="nav-item">
+                                      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false"><strong>CNN</strong></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a  class="nav-link disabled">
+                                            <strong>Model Selection</strong> 
+                                        </a>
+                                    </li>
+                                  </ul>
+                            </div>
+                         
+                            <div class="card-body modelselect">
+                                <div class="tab-content" id="myTabContent">
+                                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
     
-                                            </div>
-                                           
-                                            
                                         
     
-                                        </div>
-                                        <!-- <button type="submit">Submit</button> -->
-                                    
-                                    
-                                </div>
-                                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                    <div class="row  list-group-item list-group-item-action list-group-item-light">
-                                                <input class="form-check-input model" type="radio" name="exampleRadios" id="exampleRadios11" value="CNN_Fas_64_decay1e-06_" checked>
-                                                <label class="form-check-label model2" for="exampleRadios11">
-                                                    Default Radio
-                                                </label>
-                                            </div>
-                                            <div class="row  list-group-item list-group-item-action list-group-item-light">
-                                                <input class="form-check-input model" type="radio" name="exampleRadios" id="exampleRadios22" value="ancoder_dense_0_epochs_3_neck_2_time_">
-                                                <label class="form-check-label model2" for="exampleRadios22">
-                                                    Default Radio 2
-                                                </label>
-                                            </div>
+                                            <div class="form-check" >
+                                           
+                                                <div class="row  list-group-item list-group-item-action list-group-item-light">
+                                                    <input class="form-check-input model" type="radio" name="exampleRadios" id="exampleRadios1" value="DNN_Num_ancoder_dense_0_epochs_3_neck_64_time_" checked>
+                                                    <label class="form-check-label model2" for="exampleRadios1">
+                                                        Default Radio
+                                                    </label>
+                                                </div>
+                                                <div class="row  list-group-item list-group-item-action list-group-item-light">
+                                                    <input class="form-check-input model" type="radio" name="exampleRadios" id="exampleRadios2" value="DNN_Num_ancoder_dense_0_epochs_3_neck_2_time_">
+                                                    <label class="form-check-label model2" for="exampleRadios2">
+                                                        Default Radio 2
+                                                    </label>
+                                                </div>
+                                                
+                                                <div class="row  list-group-item list-group-item-action list-group-item-light">
+                                                    <input class="form-check-input model " type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
+                                                    <label class="form-check-label model2 " for="exampleRadios3">
+                                                        Default Radio 3
+                                                    </label>
+        
+                                                </div>
+                                               
+                                                
                                             
-                                            <div class="row  list-group-item list-group-item-action list-group-item-light">
-                                                <input class="form-check-input model " type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
-                                                <label class="form-check-label model2 " for="exampleRadios3">
-                                                    Default Radio 3
-                                                </label>
-    
+        
                                             </div>
-                                </div>
-                               
-                              </div>
+                                            <!-- <button type="submit">Submit</button> -->
+                                        
+                                        
+                                    </div>
+                                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                                <div class="row  list-group-item list-group-item-action list-group-item-light">
+                                                    <input class="form-check-input model" type="radio" name="exampleRadios" id="exampleRadios11" value="CNN_Fas_64_decay1e-06_" checked>
+                                                    <label class="form-check-label model2" for="exampleRadios11">
+                                                        Default Radio
+                                                    </label>
+                                                </div>
+                                                <div class="row  list-group-item list-group-item-action list-group-item-light">
+                                                    <input class="form-check-input model" type="radio" name="exampleRadios" id="exampleRadios22" value="ancoder_dense_0_epochs_3_neck_2_time_">
+                                                    <label class="form-check-label model2" for="exampleRadios22">
+                                                        Default Radio 2
+                                                    </label>
+                                                </div>
+                                                
+                                                <div class="row  list-group-item list-group-item-action list-group-item-light">
+                                                    <input class="form-check-input model " type="radio" name="exampleRadios" id="exampleRadios33" value="option3">
+                                                    <label class="form-check-label model2 " for="exampleRadios33">
+                                                        Default Radio 3
+                                                    </label>
+        
+                                                </div>
+                                    </div>
+                                   
+                                  </div>
+                            </div>
+                            <div class="card-footer text-muted">
+                                <button class="btn btn-primary data" id="subbut"  type="submit" >Submit</button>
+                            </div>
+    
+                            
+                       
                         </div>
-                        <div class="card-footer text-muted">
-                            <button class="btn btn-primary data" id="subbut"  type="submit" >Submit</button>
-                        </div>
-
-                        
-                   
-                    </div>
+                    <!-- </div> -->
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-5" style="max-height: fit-content;">
                     
-                    <div class="row rowimg">
+                    <!-- <div class="row rowimg"> -->
                         
-                        <div class="card">
+                        <div class="card" style="width: 100%;margin-top: 10px;">
                             <div class="card-header">
                                     <button class="btn btn-primary changeimg" type="submit"    id='mainimgbut' >
                                         Change Image
@@ -304,7 +307,7 @@
                             </div>
                             <div class="card-body">
                                 <div class="row">
-                                    <img src="" id ='mainimg' height="300px" width="100%"  >
+                                    <img src="" id ='mainimg' height='300px' width="100%" >
                                 </div>
                             </div>
                             <div class="card-footer text-muted">
@@ -323,7 +326,7 @@
                         </div>
                                     
 
-                    </div>
+                    <!-- </div> -->
 
                    
                             
@@ -333,7 +336,7 @@
                 </div>
 
 
-                <div class="container-fluid " id="result_togle" >
+                <div class="container-fluid " id="result_togle" style="display: none;" >
                     <header>
                         
                         <h2 class="sect1"><strong>Results</strong></h2> 
@@ -342,7 +345,7 @@
                         <img src="data:imge/png;base64, {{rep_img|safe}} " height="300px"  >
                     </div> -->
 
-                    <div class="row">
+                    <div class="row resultsec">
                         <div class="col-md-6">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi inventore quasi facilis nesciunt ut sapiente vitae nam quod officia! Aliquam quisquam molestiae labore blanditiis saepe nisi, est eum quia eius?
                             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit optio voluptas laudantium hic harum. Cupiditate, dignissimos earum? Atque et ducimus, debitis facilis laudantium veniam vel quidem earum nobis repellat neque!
@@ -452,8 +455,10 @@
             fir = 'data:image/png;base64,';
             str = fir.concat(val);
             document.getElementById('mainimg').setAttribute(
-                'src',str
+                'src',str,
+                
             );
+            //document.getElementById('mainimg').style.width='100%';
             document.getElementById('mainimg2').setAttribute(
                 'src',str
             );
