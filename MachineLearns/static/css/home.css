@@ -1,0 +1,54 @@
+/* body{
+    background-color:#1D2026;
+    color: aliceblue;
+} */
+
+.top{
+    /* padding-top: 1%; */
+    /* padding-bottom: 2%; */
+    margin-top: 60px;
+    padding: 0%;
+}
+.lower{
+    margin-top: 10%;
+}
+
+.vertical-center {
+    
+    min-height: 50vh;
+    text-align: center;
+  
+    display: flex;
+    align-items: center;
+  }
+
+
+  
+.sect1{
+    padding: 15px;
+    margin-top: 10%;
+    border-bottom: 5px solid #02012b;
+    
+}
+
+.maincard{
+    margin-top: 35px;
+    min-height: 35vh;
+    margin-bottom: 20px;
+    color: aliceblue;
+}
+
+
+
+
+
+
+.profile{
+    min-height: 50vh;
+    padding: 20px;
+}
+
+
+.link{
+    padding: 5px;
+}

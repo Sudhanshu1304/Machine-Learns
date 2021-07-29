@@ -6,12 +6,34 @@
 
 } */
 
+/* body{
+    background-color:#1D2026;
+    
+} */
+
+.cardimg{
+
+    height: 150px;
+
+}
+
+.carousel-item {
+    /* any dimensions are fine, it can be responsive with max-width */
+    width: 100%;
+    height: 200px;
+  }
+
 .jumbotron{
     padding-top: 4%;
     /* padding-bottom: 2%; */
     margin-top: 60px;
     
 
+}
+.text{
+    color:rgb(255, 255, 255);
+    font-size:larger;
+    
 }
 
 .cousalcard{
