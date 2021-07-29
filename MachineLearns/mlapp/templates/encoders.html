@@ -2,7 +2,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Title</title>
+    <title>Encoders</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -55,7 +55,7 @@
             <div class="jumbotron jumbotron-fluid">
                 <div class="container">
                     <h1 class="display-5">AutoEncoders</h1>
-                    <p class="lead"><h4 class="display-6">Experimentation Lab  </h4></p>
+                    <p class="lead"><h4 class="display-6">Introduction </h4></p>
                     <hr class="my-2">
                     <p> We will learn what  autoencoders are and how do they work</p>
                     <p class="lead">
@@ -72,38 +72,47 @@
                     
                     <div class="card cousalcard" style="margin-top: 15px;">
                         <div class="card-header">
-                            Applications
+                            <strong>Encoders | Decoders and | Representation</strong> 
                         </div>
                         <div class="card-body">
                            
                             <p class="card-text">
                                 <div id="carouselId" class="carousel slide" data-ride="carousel">
                                     <ol class="carousel-indicators">
-                                        <li data-target="#carouselId" data-slide-to="0" class="active"></li>
+                                        <li data-target="#carouselId" data-slide-to="0" ></li>
                                         <li data-target="#carouselId" data-slide-to="1"></li>
-                                        <li data-target="#carouselId" data-slide-to="2"></li>
+                                        <li data-target="#carouselId" data-slide-to="2" class="active"></li>
+                                        <li data-target="#carouselId" data-slide-to="3"></li>
+                                        <li data-target="#carouselId" data-slide-to="4"></li>
                                     </ol>
                                     <div class="carousel-inner" role="listbox">
-                                        <div class="carousel-item active">
-                                            <img src="{% static 'images/anco1.png' %}" height="200px" width="100%" alt="First slide">
+                                        <div class="carousel-item ">
+                                            <img src="{% static 'images/anco1.png' %}" height="100%" width="100%" alt="First slide">
                                             
-                                            <div class="carousel-caption d-none d-md-block">
+                                            {% comment %} <div class="carousel-caption d-none d-md-block">
                                                 <h3>Title</h3>
                                                 <p>Description</p>
-                                            </div>
+                                            </div> {% endcomment %}
                                         </div>
                                         <div class="carousel-item">
-                                            <img src="{% static 'images/ebco.png' %}" height="200px" width="100%" alt="Second slide">
-                                            <div class="carousel-caption d-none d-md-block">
+                                            <img src="{% static 'images/anco2.png' %}" height="100%" width="100%" alt="Second slide">
+                                            {% comment %} <div class="carousel-caption d-none d-md-block">
                                                 <h3>Title</h3>
                                                 <p>Description</p>
-                                            </div>
+                                            </div> {% endcomment %}
+                                        </div>
+                                        <div class="carousel-item active">
+                                            <img src="{% static 'images/anco3.png' %}" height="100%" width="100%" alt="Third slide">
+                                            {% comment %} <div class="carousel-caption d-none d-md-block">
+                                                <h3>Title</h3>
+                                                <p>Description</p>
+                                            </div> {% endcomment %}
                                         </div>
                                         <div class="carousel-item">
-                                            <img src="{% static 'images/enco2.jpg' %}" height="200px" width="100%" alt="Third slide">
+                                            <img src="{% static 'images/anco5.png' %}" height="100%" width="100%" alt="Third slide">
                                             <div class="carousel-caption d-none d-md-block">
-                                                <h3>Title</h3>
-                                                <p>Description</p>
+                                                <h3 class='text'>Color B&W images</h3>
+                                                <p class='text'>Using Autoencoder</p>
                                             </div>
                                         </div>
                                     </div>
@@ -123,39 +132,44 @@
                 </div>
 
                 <div class="col-lg-6" style="margin-top: 15px;">
-                    Autoencoder is an unsupervised Learning approach.
-                    It is an Artificial Neural Network(ANN) that learns how to capture the most important piece of information and hence helps in removing noise and reducing dimensions.
-                    <br>
-                    
-                    Autoencoder have four major components:
-                    <br>
-                    <ul>
-                        <li>Encoder -
 
-                            This part of the model learns to encode the original data into a lower latent space(lower dimensions) by focusing on the most important pieces of the data.
-                        </li>
-                        <li>
-                            Bottle Neck - 
-                            which is the layer that contains the compressed representation of the input data. This is the lowest possible dimensions of the input data.
-                        </li>
-                        <li>Decoder - 
-                            In which the model learns how to reconstruct the data from the encoded representation to be as close to the original input as possible.
-                        </li>
+                    <div class="container">
+
+                        Autoencoder is an unsupervised Learning approach.
+                        It is an Artificial Neural Network(ANN) that learns to capture important piece of information (features) from a given data .
+                        AN Autoencoder forms a representation of the actuall data into a samll maxtrx also known as latent sapce. 
                         
-                        <li>
-                            Reconstruction Loss: - 
-                            This is a method that determines how close is the output is to the original input.
-                        </li>
-                    </ul>
+                        <br> <br>
+                        
+                        Autoencoder have four major components:
+                        <br>
+                        <ul>
+                            <li > <strong>Encoder</strong>  -
+
+                                It compreses (encodes) the data into a latent space (bottleneck).
+                            </li>
+                            <li>
+                                <strong>Bottleneck</strong>  - 
+                                Is the layer that contains the compressed representation of the input data. This is the lowest possible dimensions of  data.
+                            </li>
+                            <li>
+                                <strong> Decoder</strong> - 
+                                This part of the model learns to reconstruct the input from the latent space (latent representation).
+                            </li>
+                            
+                            <li>
+                                <strong>Reconstruction Loss</strong>  - 
+                                This is a method that determines how close is the output is to the original input.
+                            </li>
+                        </ul>
+
+                    </div>
+                    
 
                 </div>
             </div>
 
-            <!-- Card View section-->
-            {% comment %} <div class="row">
-                <h4 class="display-4">Hands On Autoencoder  </h4>
-               
-            </div> {% endcomment %}
+       
 
             <header>
                 <h2 class="sect1" style="padding-top: 50px;"><strong>Hands On Autoencoder</strong></h2> 
@@ -165,14 +179,14 @@
                 <div class="col-md-6">
                     <div class="card " style="margin-top: 10px;" >
                         <div class="card-header">
-                            <h3><strong>Data Compression</strong> </h3>
+                            <h3><strong>Compression</strong> </h3>
                         </div>
-                        <img class="card-img" src="{% static 'images/comp1.jpg' %}" alt="Card image">
+                        <img class="card-img cardimg" src="{% static 'images/comp1.jpg' %}" alt="Card image">
                         <div class="card-img-overlay">
                             <div class="card-body"></div> 
                         </div>
                         <div class="card-footer text-muted">
-                            <h4 class="card-title">Image Compresion Demonstraction <a href="{% url 'Encoder Size' %}" class="stretched-link"></a></h4>
+                            <h4 class="card-title"> <strong>Image Compresion Demonstraction </strong> <a href="{% url 'Encoder Size' %}" class="stretched-link"></a></h4>
                                 <p class="card-text">
                         </div>
                     </div>
@@ -182,14 +196,14 @@
 
                     <div class="card" style="margin-top: 10px;" >
                         <div class="card-header">
-                            <h3><strong>Noice Reducation</strong> </h3>
+                            <h3><strong>Denoising</strong></h3> </h3>
                         </div>
-                        <img class="card-img" src="{% static 'images/comp1.jpg' %}" alt="Card image">
+                        <img class="card-img cardimg" src="{% static 'images/anco4_noice.png' %}" alt="Card image">
                         <div class="card-img-overlay">
                             <div class="card-body"></div> 
                         </div>
                         <div class="card-footer text-muted">
-                            <h4 class="card-title">Noice Reducation Demonstraction <a href="{% url 'Encoder Noice' %}" class="stretched-link"></a></h4>
+                            <h4 class="card-title"> <strong>Noice Reducation Demonstraction </strong> <a href="{% url 'Encoder Noice' %}" class="stretched-link"></a></h4>
                             <p class="card-text">
                         </div>
                     </div>

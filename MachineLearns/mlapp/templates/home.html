@@ -1,13 +1,18 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Title</title>
+    <title>Home</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}"/>  
   </head>
   <body>
       
@@ -19,43 +24,239 @@
   
     
 
-    <h1>Home</h1>
     
-    <img src="" id="img">
-    <!-- <img src="data:imge/png;base64, {{orgimg|safe}} " height="300px" width="100%"  > -->
-   
-    <script>
-     
-      console.log("d1 ");
+    
+    <div class="container-fluid" >
 
-      async function firstimg(){
-       
-          const data = await fetch('http://127.0.0.1:8000/api/img');
 
-         
-          const d2 = await data.json();
-       
-          const val = d2['org'];
-          console.log("Data : ",val);
-
-          fir = 'data:image/png;base64,';
-          str = fir.concat(JSON.parse(val));
-
+      <div class="row">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-brand" href="/"><strong>Machine Learns</strong> </a>
+        
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+             
+              <li class="nav-item">
+                  <a class="nav-link" href="#">API</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Blogs</a>
+                </li>
+            </ul>
           
-          document.getElementById('img').setAttribute(
-              'src',str
-          );
+          </div>
+        </nav>
+      </div>
+
+      <section class="top">
+        <img class="mySlides" src="{% static 'images/sound.svg' %}" width="100%" height="350px" >
+     
+      </section>
+
+
+
+      <div class="container lower">
+
+        <section >
+
+          <div class="row justify-content-center align-middle vertical-center">
+            <div class="col-lg-7 align-middle vertical-center">
+              <h1 class="display-3 vertical-center  justify-content-center">
+                <strong>
+                  Wellcome <br> to <br> 
+                  Machine Learns
+                </strong>
+               
+              </h1>
+            </div>
+            <div class="col-lg-5 align-middle vertical-center">
+              <div class="container vertical-center  justify-content-center">
+                <p class="display-5" >
+                  A platform where you learn and vizvalizes the working of different concepts and algorithms of Machine learning and Deep Learning.
+                  Right from basic concepts like linear regression to advance concepts like VAE, Generative models e.t.c. 
+                </p>
+              </div>
+            </div>
+          </div>
+         
+
+
+        </section>
+
+        
+        
+      </div>
+
+
+      <section>
+        <header>
+          <h1 class="sect1 display-4" ><strong>Concepts</strong></h1> 
+      </header>
+
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            
+            <div class="card maincard" style="background: linear-gradient(to right, #003399 0%, #000066 100%);">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <a href="{% url 'Encoder' %}" class="stretched-link"></a>
+                  <h1 class="display-5">
+                    AutoEncoders
+                  </h1>
+                </h5>
+                <p class="card-text">
+
+                  Deep Learning Based Model
+                  
+                </p>
+               
+              </div>
+            </div>
+          
+          </div>
+          <div class="col-md-6">
+
+            <div class="card maincard" style="background: linear-gradient(to right, #cc6600 0%, #cc0000 100%);">
+              <div class="card-body">
+                
+                <p class="card-text">
+                  <h3 class="display-5  text-align: center;">
+                    Comming Soon...
+                  </h3>
+                </p>
+               
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+
+            <div class="card maincard" style="background: linear-gradient(to right, #cc6600 0%, #cc0000 100%);">
+              <div class="card-body">
+                
+                <p class="card-text">
+                  <h3 class="display-5  text-align: center;">
+                    Comming Soon...
+                  </h3>
+                </p>
+               
+              </div>
+            </div>
+
+          </div>
+          <div class="col-md-6">
+
+            <div class="card maincard" style="background: linear-gradient(to right, #cc6600 0%, #cc0000 100%);">
+              <div class="card-body">
+                
+                <p class="card-text">
+                  <h3 class="display-5  text-align: center;">
+                    Comming Soon...
+                  </h3>
+                </p>
+               
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+
+
+
+
+        
+
+
+
+
+
+
+      </div>
+      </section>
+
+      <section>
+        <header>
+          <h1 class="sect1 display-4" ><strong>About</strong></h1> 
+      </header>
+
+
+      <div class="container about">
+
+        <div class="page-heading profile">
+          <div class="media clearfix">
+
+            <div class="row">
+              <div class="col-lg-4" style="padding-top: 15px;">
+
+                <div class="media-left pr30">
+                  <a href="#">
+                    <img class="media-object mw150" src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="...">
+                  </a>
+                </div>     
+
+              </div>
+              <div class="col-lg-8" style="padding-top: 15px;">
+
+                <div class="media-body va-m">
+                  <h2 class="media-heading">Holla 👋
+                    <!-- <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <small> -Holla 👋</small> -->
+                  </h2>
+                  <p class="lead justify-content-center">
+                    This project is under development and will be  pleased to have your suggestions on adding new features (topics).
+                    If you find our information to be helpful or find error, feel free to reach out .
+                  </p>
+                  <div class="media-links">
+  
+                    <div class="container" style="align-items: center;">
+  
+                      <div class="row " style="align-items: center;">
+                    
+                        <a href="https://www.linkedin.com/in/sudhanshu-pandey-847448193/" target="_blank" title="linkedin link" class="link">
+                          <span class="fa fa-linkedin-square fa-5x fs35 text-info link"></span>
+                        </a>
+                   
+                    
+                        <a href="https://github.com/Sudhanshu1304" title="github link" target="_blank" class="link">
+                          <span class="fa fa-github-square fa-5x fs35 text-dark link"></span>
+                        </a>
+                      
+                      
+                        <a href="#" title="email link" target="_blank" class="link">
+                          <span class="fa fa-envelope-square fa-5x fs35 text-muted link"></span>
+                        </a>
+                      
+                    </div>
+  
+  
+                    </div>
+                    
+  
+                   
+                  </div>
+                </div>
+
+
+              </div>
+            </div>
+
+                             
+            
+          </div>
+        </div>
       
-      }
+      </div>
 
-      val();
-       
+        
 
-    </script>
-  
-  
-  
-  
+    </div>
   
   
   </body>
