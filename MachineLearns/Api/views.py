@@ -1,10 +1,8 @@
 print("View firest")
 import json
-from django.shortcuts import render
 from .apps import AutoencoderConfig
 from django.http import JsonResponse
 from rest_framework.views import APIView
-from matplotlib import pyplot as plt
 from . import AIbackend as ai
 
 noiceimg = None
@@ -110,6 +108,7 @@ class getImage(apiView):
            
             print("??????????????   Option |||||||||||||||||||| : ",opt,noice)
             IMAGE = AutoencoderConfig.get_img(opt,noice=noice)
+            print("Shpeeeeee : ",IMAGE.shape)
             lists2 = IMAGE.reshape((IMAGE.shape[0],IMAGE.shape[1],1)).tolist()
             lists2 = ai.make_img(lists2)
             img2 = IMAGE

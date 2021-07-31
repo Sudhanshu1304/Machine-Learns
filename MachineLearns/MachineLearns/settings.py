@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import django_heroku
 import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -123,6 +124,7 @@ USE_TZ = True
 
 # PROJECT_PATH = os.path.abspath(os.path.dirname(__name__))
 # STATIC_ROOT = os.path.join(PROJECT_PATH, 'public', 'static')
+#STATIC_ROOT = 'staticfile'
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
@@ -137,3 +139,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Models stored at path
 
 MODELS = os.path.join(BASE_DIR, 'Api/Models')
+
+
+
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+LOGIN_REDIRECT_URL = '/'
+CRISPY_TEMPLATE_PACK = "bootstrap4"
+# Activate Django-Heroku.
+django_heroku.settings(locals())

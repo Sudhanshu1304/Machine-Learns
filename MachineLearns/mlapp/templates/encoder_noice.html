@@ -188,20 +188,20 @@
                                                 <div class="row  list-group-item list-group-item-action list-group-item-light">
                                                     <input class="form-check-input model" type="radio" name="exampleRadios" id="exampleRadios1" value="DNN_Num_ancoder_dense_0_epochs_3_neck_64_time_" checked>
                                                     <label class="form-check-label model2" for="exampleRadios1">
-                                                        Default Radio
+                                                        Bottelneck - 64 Hidden layers - 1 
                                                     </label>
                                                 </div>
                                                 <div class="row  list-group-item list-group-item-action list-group-item-light">
                                                     <input class="form-check-input model" type="radio" name="exampleRadios" id="exampleRadios2" value="DNN_Num_ancoder_dense_0_epochs_3_neck_2_time_">
                                                     <label class="form-check-label model2" for="exampleRadios2">
-                                                        Default Radio 2
+                                                        Bottelneck - 2 Hidden layers - 1
                                                     </label>
                                                 </div>
                                                 
                                                 <div class="row  list-group-item list-group-item-action list-group-item-light">
                                                     <input class="form-check-input model " type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
                                                     <label class="form-check-label model2 " for="exampleRadios3">
-                                                        Default Radio 3
+                                                        Inactive
                                                     </label>
         
                                                 </div>
@@ -218,20 +218,20 @@
                                         <div class="row  list-group-item list-group-item-action list-group-item-light">
                                                     <input class="form-check-input model" type="radio" name="exampleRadios" id="exampleRadios11" value="CNN_Fas_64_decay1e-06_" checked>
                                                     <label class="form-check-label model2" for="exampleRadios11">
-                                                        Default Radio
+                                                        Bottelneck - 64  Hidden layers - 1
                                                     </label>
                                                 </div>
                                                 <div class="row  list-group-item list-group-item-action list-group-item-light">
                                                     <input class="form-check-input model" type="radio" name="exampleRadios" id="exampleRadios22" value="ancoder_dense_0_epochs_3_neck_2_time_">
                                                     <label class="form-check-label model2" for="exampleRadios22">
-                                                        Default Radio 2
+                                                        Bottelneck - 3  Hidden layers - 1
                                                     </label>
                                                 </div>
                                                 
                                                 <div class="row  list-group-item list-group-item-action list-group-item-light">
                                                     <input class="form-check-input model " type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
                                                     <label class="form-check-label model2 " for="exampleRadios3">
-                                                        Default Radio 3
+                                                        Inactive
                                                     </label>
         
                                                 </div>
@@ -413,12 +413,12 @@
         async function firstimg(){
           
             reset();
-            console.log("Type:::::::::::",option);
+            
             var obj = JSON.stringify({"opt":option,'noice':'True'});
-            const data = await fetch('http://127.0.0.1:8000/api/img?opt='+obj);
+            const data = await fetch('/api/img?opt='+obj);
             const d2 = await data.json();
             var val = d2['org'];
-            //console.log('valllllll : ',val);
+         
             val = JSON.parse(val);
 
             fir = 'data:image/png;base64,';
@@ -455,21 +455,17 @@
 
         async function otherimg(){
             // This function is for the the original Image
-            console.log("MMMMMMMMMM");
+           
             var name = $("input[name='exampleRadios']:checked").attr("value");
             var list = name.split("_");
             var len = list.length;
             var size = list[len-3];
-            console.log("{{{{{_____---> ",list,size);
-
-
-            //name = 'ancoder_dense_0_epochs_3_neck_2_time_';
             var obj = JSON.stringify({"name":name,"size":size,'page':'noice'});
-            var string = 'http://127.0.0.1:8000/api/?name='+obj;
-            console.log("string  : ",string);
+            var string = '/api/?name='+obj;
+         
             var data = await fetch(string);
             var d2 = await data.json();
-            console.log("d2 : ",d2);
+           
             var val = d2['rep_img'];
             var orgimg = d2['img'];
             var botneck = d2['bot'];
