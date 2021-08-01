@@ -62,9 +62,7 @@ class AutoencoderConfig(AppConfig):
     name = 'Api2'
     print("Err1")
     global x_test,y_test
-    # x_test,y_test= tf.keras.datasets.fashion_mnist.load_data()[0]
-    # x_test = (x_test/255.0)[:1000]
-    # y_test = y_test[:1000]
+   
     
     
     

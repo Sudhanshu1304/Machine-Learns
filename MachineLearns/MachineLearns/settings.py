@@ -148,3 +148,12 @@ LOGIN_REDIRECT_URL = '/'
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 # Activate Django-Heroku.
 django_heroku.settings(locals())
+
+
+
+# Django rest framework
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication'
+    ]
+}

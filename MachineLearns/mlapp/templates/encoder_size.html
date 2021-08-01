@@ -449,19 +449,50 @@
 
 
     <script>
+
+
+
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    const csrftoken = getCookie('csrftoken');
         
         option = 'digit';
         async function firstimg(){
             // This function is for the the original Image
-            //var imtype = $("input[name='options']:checked").attr("value");
             reset();
            
-            var obj = JSON.stringify({"opt":option,'noice':'False'});
-            const data = await fetch('/api/img?opt='+obj);
+            const data = await fetch('/api/img/',{
+                method:"POST",
+                credentials: "same-origin",
+                headers: {
+                    'Accept': 'application/json',
+                    "Content-type": "application/json;charset=UTF-8",
+                    "X-CSRFToken": csrftoken,
+                    'X-Requested-With': 'XMLHttpRequest',
+                },
+                body: JSON.stringify({"opt":option,'noice':'False'}),
+                
+
+            });
             const d2 = await data.json();
             var val = d2['org'];
           
+            mainimg = d2['mainimg']
             val = JSON.parse(val);
+            mainimg = JSON.parse(mainimg);
 
             fir = 'data:image/png;base64,';
             str = fir.concat(val);
@@ -503,10 +534,21 @@
             var len = list.length;
             var size = list[len-3];
 
-            obj = JSON.stringify({"name":name,"size":size,'page':'digit'});
-            var string = '/api/?name='+obj;
-          
-            var data = await fetch(string);
+            obj = JSON.stringify({"name":name,"size":size,'page':'digit','orgimg':mainimg});
+            var data = await fetch('/api/',{
+
+                method:"POST",
+                credentials: "same-origin",
+                headers: {
+                    'Accept': 'application/json',
+                    "Content-type": "application/json;charset=UTF-8",
+                    "X-CSRFToken": csrftoken,
+                    'X-Requested-With': 'XMLHttpRequest',
+                },
+                body: obj,
+            
+            
+            });
             var d2 = await data.json();
          
             var val = d2['rep_img'];

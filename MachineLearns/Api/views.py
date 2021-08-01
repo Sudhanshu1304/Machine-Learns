@@ -4,11 +4,10 @@ from .apps import AutoencoderConfig
 from django.http import JsonResponse
 from rest_framework.views import APIView
 from . import AIbackend as ai
+import numpy as np
 
-noiceimg = None
-noiceimg_j = None
-digitimg = None
-digitimg_j = None
+
+
 
 def pred_bottelneck(model,img,name,shape=(8,8)):
     if name == 'CNN':
@@ -40,32 +39,25 @@ def pred_bottelneck(model,img,name,shape=(8,8)):
     
 class apiView(APIView):
     
-    def get(self,request):
-        #global IMAGE2,img2
-        global noiceimg,digitimg
+    def post(self,request):
+      
+     
         print("Api Called")
-        if request.method == 'GET':
+        if request.method == 'POST':
             
-            obj = request.GET.get('name')
- 
-            
-            dict_obj = json.loads(obj)
+            dict_obj = json.load(request) # load != loads
          
             name = dict_obj['name']
             n_name = name.split('_')[0]
             size = int(dict_obj['size'])
-            page = dict_obj['page']
+         
             
+            print("Keys : ",dict_obj.keys())
+            img2 = dict_obj['orgimg']
+            img2 = np.array(img2)
+            print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@   @@@@@@@@@@@@@@@@@@@@   : ",img2.shape)
             
-            
-            if page == 'digit':
-                IMAGE2 = digitimg_j
-                img2 = digitimg
-            else:
-                IMAGE2 = noiceimg_j
-                img2 = noiceimg
-     
-            org = IMAGE2
+         
             
             
             model,rep,encod_model = AutoencoderConfig.loadModel(name,name2=n_name)
@@ -87,43 +79,43 @@ class apiView(APIView):
             rep_img = ai.plot_images_encoded_in_latent_space(rep_img,rep_lab)
             rep_str = json.dumps(rep_img)
 
-            pred = {"img":json_str,"rep_img":rep_str,"org":org,"bot":bot}
+            pred = {"img":json_str,"rep_img":rep_str,"bot":bot}
         
-        print(">>>>>>>>>>Clear here<<<<<<<<<<<<<< : \n")
-    
-        return JsonResponse(pred)
+            print(">>>>>>>>>>Clear here<<<<<<<<<<<<<< : \n")
+        
+            return JsonResponse(pred)
 
 
 
 class getImage(apiView):
     
-    def get(self, request):
-        global noiceimg,digitimg,noiceimg_j,digitimg_j
-        print("\nCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n")
-        if request.method == 'GET':
-            obj = request.GET.get('opt')
-            dict_obj = json.loads(obj)
+    print("Calleeeee : ")
+    def post(self, request):
+      
+        print("\nCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n : ",request)
+        if request.method == 'POST':
+            val = json.load(request)
+            print("In Her :><><><><>< \n",val)
+           
+            dict_obj = val#json.load(request)
+            print("1 dict obj :  ",dict_obj)
+            print("2 : ",dict_obj.keys())
             opt = dict_obj['opt']
             noice = dict_obj['noice']
            
-            print("??????????????   Option |||||||||||||||||||| : ",opt,noice)
+        
             IMAGE = AutoencoderConfig.get_img(opt,noice=noice)
             print("Shpeeeeee : ",IMAGE.shape)
             lists2 = IMAGE.reshape((IMAGE.shape[0],IMAGE.shape[1],1)).tolist()
+            mainimg = json.dumps(lists2)
             lists2 = ai.make_img(lists2)
-            img2 = IMAGE
+           
            
             
             org = json.dumps(lists2)
-            IMAGE2 = org
+        
 
-            if noice=='True':
-                noiceimg = img2
-                noiceimg_j = IMAGE2
-            else:
-                digitimg = img2
-                digitimg_j = IMAGE2
 
-            pred = {"org":org}
+            pred = {"org":org,'mainimg':mainimg}
             
-        return JsonResponse(pred)
+            return JsonResponse(pred)
