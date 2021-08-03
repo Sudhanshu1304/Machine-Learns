@@ -5,7 +5,7 @@ from django.http import JsonResponse
 from rest_framework.views import APIView
 from . import AIbackend as ai
 import numpy as np
-
+import matplotlib.pyplot as plt
 
 
 
@@ -14,17 +14,13 @@ def pred_bottelneck(model,img,name,shape=(8,8)):
         cnn = True
     else:
         cnn = False
-        
-    img = img.reshape(1,img.shape[0],img.shape[1],1)
+    
+    print("Imm Sh 111 : ",img.shape)
+    #img = img.reshape((img.shape[0],img.shape[1]))
+    img = img.reshape(-1,img.shape[0],img.shape[1],1)
     img2 = model.predict(img)
-
+    print("Imm Sh : ",img2.shape)
     if cnn == True:
-        
-        #img = []
-        #for i in range(1):
-            #I = ai.make_img(img2[0,:,:,i].tolist())
-        #    img.append(I) 
-        #lists = img
         img = img2[0,:,:,0]
     else:
         
@@ -48,11 +44,13 @@ class apiView(APIView):
             dict_obj = json.load(request) # load != loads
          
             name = dict_obj['name']
+            
             n_name = name.split('_')[0]
             size = int(dict_obj['size'])
-         
-            
-            print("Keys : ",dict_obj.keys())
+            type1 = dict_obj['type'] 
+            page = str(dict_obj['page'])
+            Name = str(type1)+'_'+page+"_"+name
+            print("Keys : ",Name,name,n_name)
             img2 = dict_obj['orgimg']
             img2 = np.array(img2)
             print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@   @@@@@@@@@@@@@@@@@@@@   : ",img2.shape)
@@ -60,10 +58,10 @@ class apiView(APIView):
          
             
             
-            model,rep,encod_model = AutoencoderConfig.loadModel(name,name2=n_name)
+            model,rep,encod_model = AutoencoderConfig.loadModel(Name,name2=n_name)
             s = int(size**0.5)
             s2 = int(size/s)
-            print("Size >>> : ",s,s2)
+            print("Size >>> : ",s,s2,size)
             botneck = pred_bottelneck(encod_model,img2,shape=(s2,s),name=n_name)
             bot = json.dumps(botneck)
             img = model.predict(img2.reshape((-1,28,28,1)))[0]
@@ -105,6 +103,7 @@ class getImage(apiView):
            
         
             IMAGE = AutoencoderConfig.get_img(opt,noice=noice)
+          
             print("Shpeeeeee : ",IMAGE.shape)
             lists2 = IMAGE.reshape((IMAGE.shape[0],IMAGE.shape[1],1)).tolist()
             mainimg = json.dumps(lists2)

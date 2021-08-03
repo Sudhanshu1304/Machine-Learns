@@ -219,20 +219,20 @@
                                             <div class="form-check" >
                                            
                                                 <div class="row  list-group-item list-group-item-action list-group-item-light">
-                                                    <input class="form-check-input model" type="radio" name="exampleRadios" id="exampleRadios1" value="DNN_Num_ancoder_dense_0_epochs_3_neck_64_time_" checked>
+                                                    <input class="form-check-input model" type="radio" name="exampleRadios" id="exampleRadios1" value="DNN_1_64_" checked>
                                                     <label class="form-check-label model2" for="exampleRadios1">
                                                         Bottelneck - 64  Hidden layers - 1
                                                     </label>
                                                 </div>
                                                 <div class="row  list-group-item list-group-item-action list-group-item-light">
-                                                    <input class="form-check-input model" type="radio" name="exampleRadios" id="exampleRadios2" value="DNN_Num_ancoder_dense_0_epochs_3_neck_2_time_">
+                                                    <input class="form-check-input model" type="radio" name="exampleRadios" id="exampleRadios2" value="DNN_1_8_">
                                                     <label class="form-check-label model2" for="exampleRadios2">
                                                         Bottelneck - 3  Hidden layers - 1
                                                     </label>
                                                 </div>
                                                 
                                                 <div class="row  list-group-item list-group-item-action list-group-item-light">
-                                                    <input class="form-check-input model " type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
+                                                    <input class="form-check-input model " type="radio" name="exampleRadios" id="exampleRadios3" value="DNN_2_8_">
                                                     <label class="form-check-label model2 " for="exampleRadios3">
                                                         Inactive
                                                     </label>
@@ -249,20 +249,20 @@
                                     </div>
                                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                                                 <div class="row  list-group-item list-group-item-action list-group-item-light">
-                                                    <input class="form-check-input model" type="radio" name="exampleRadios" id="exampleRadios11" value="CNN_Fas_64_decay1e-06_" checked>
+                                                    <input class="form-check-input model" type="radio" name="exampleRadios" id="exampleRadios11" value="CNN_1_64_" checked>
                                                     <label class="form-check-label model2" for="exampleRadios11">
                                                         Bottelneck - 64  Hidden layers - 1
                                                     </label>
                                                 </div>
                                                 <div class="row  list-group-item list-group-item-action list-group-item-light">
-                                                    <input class="form-check-input model" type="radio" name="exampleRadios" id="exampleRadios22" value="ancoder_dense_0_epochs_3_neck_2_time_">
+                                                    <input class="form-check-input model" type="radio" name="exampleRadios" id="exampleRadios22" value="CNN_1_8_">
                                                     <label class="form-check-label model2" for="exampleRadios22">
                                                         Bottelneck - 3 Hidden layers - 1
                                                     </label>
                                                 </div>
                                                 
                                                 <div class="row  list-group-item list-group-item-action list-group-item-light">
-                                                    <input class="form-check-input model " type="radio" name="exampleRadios" id="exampleRadios33" value="option3">
+                                                    <input class="form-check-input model " type="radio" name="exampleRadios" id="exampleRadios33" value="CNN_2_8_">
                                                     <label class="form-check-label model2 " for="exampleRadios33">
                                                         Inactive
                                                     </label>
@@ -469,7 +469,7 @@
     }
     const csrftoken = getCookie('csrftoken');
         
-        option = 'digit';
+        option = 'Digit';
         async function firstimg(){
             // This function is for the the original Image
             reset();
@@ -512,11 +512,11 @@
         });
         
         $('#option1').change(function() {
-            option = 'digit';
+            option = 'Digit';
             firstimg();
         });
         $('#option2').change(function() {
-            option = 'fashion';
+            option = 'Fashion';
             firstimg();
         }); 
         $(document).ready(function(){
@@ -531,10 +531,11 @@
            
             var name = $("input[name='exampleRadios']:checked").attr("value");
             var list = name.split("_");
+            console.log('Dist : ',list )
             var len = list.length;
-            var size = list[len-3];
+            var size = list[len-2];
 
-            obj = JSON.stringify({"name":name,"size":size,'page':'digit','orgimg':mainimg});
+            obj = JSON.stringify({"name":name,"size":size,'page':option,'orgimg':mainimg,'type':"Clean"});
             var data = await fetch('/api/',{
 
                 method:"POST",

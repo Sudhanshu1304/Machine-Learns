@@ -77,6 +77,7 @@ class AutoencoderConfig(AppConfig):
         print("Nme : ",path22)
         #path22 = 'Api/Models/abcde'
         model_bottelneck = tf.keras.models.load_model(path22)
+        print(model_bottelneck.summary())
         print("Nmae 2 : ",len(x_test))
         pred = model_bottelneck.predict(x_test)
         print("><<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>.Pred : ",pred.shape)
@@ -90,7 +91,7 @@ class AutoencoderConfig(AppConfig):
     def get_img(opt,noice = 'False'):
         
         global x_test,y_test
-        if opt == 'digit':
+        if opt == 'Digit':
             x_test = x_test3
             y_test = y_test3
         else:
