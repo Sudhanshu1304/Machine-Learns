@@ -30,3 +30,34 @@ It is an Interactive website where you can understand and play around with Machi
 You will also find <strong>Blogs</strong> on different ML & AI Concepts. 
 <p>
 
+<br><br>
+
+
+## <strong>Preview<strong>
+---
+
+
+<table>
+
+<tr>
+<td>
+ <img src="Images/prev0.png" alt="Home Page" >
+</td>
+<td>
+ <img src="Images/prev2.png" alt="Home Page" >
+</td>
+</tr>
+
+<tr>
+<td>
+ <img src="Images/prev3.png" alt="Home Page" >
+</td>
+<td>
+ <img src="Images/prev4.png" alt="Home Page" >
+</td>
+</tr>
+
+
+
+</table>
+
