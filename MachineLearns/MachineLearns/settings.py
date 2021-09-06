@@ -124,12 +124,11 @@ USE_TZ = True
 
 # PROJECT_PATH = os.path.abspath(os.path.dirname(__name__))
 # STATIC_ROOT = os.path.join(PROJECT_PATH, 'public', 'static')
-#STATIC_ROOT = 'staticfile'
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
-
+STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles') 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
@@ -148,12 +147,3 @@ LOGIN_REDIRECT_URL = '/'
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 # Activate Django-Heroku.
 django_heroku.settings(locals())
-
-
-
-# Django rest framework
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.SessionAuthentication'
-    ]
-}

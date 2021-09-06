@@ -51,4 +51,24 @@
     margin-top: 5px;
     border-bottom: 5px solid #7a0000;
     
+    
+}
+
+
+.blog{
+    padding-top: 4%;
+    /* padding-bottom: 2%; */
+    margin-top: 60px;
+    
+}
+
+.bbody{
+    margin-top:10px ;
+    height: fit-content;
+}
+
+.blogcont{
+    
+    border : 10px solid #7a0000;
+    height: 30vh;
 }

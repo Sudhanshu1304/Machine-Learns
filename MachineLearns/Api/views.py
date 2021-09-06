@@ -15,21 +15,21 @@ def pred_bottelneck(model,img,name,shape=(8,8)):
     else:
         cnn = False
     
-    print("Imm Sh 111 : ",img.shape)
+   
     #img = img.reshape((img.shape[0],img.shape[1]))
     img = img.reshape(-1,img.shape[0],img.shape[1],1)
     img2 = model.predict(img)
-    print("Imm Sh : ",img2.shape)
+    
     if cnn == True:
         img = img2[0,:,:,0]
     else:
         
         img = img2.reshape(shape)
     
-    print("\n\n\nShapeeee >>>>>>> : \n\n",img.shape)
+    
     lists = img.tolist()
     lists = ai.make_img(lists)
-    print('****************************************************Pass')
+    
     return lists   
     
     
@@ -38,7 +38,7 @@ class apiView(APIView):
     def post(self,request):
       
      
-        print("Api Called")
+       
         if request.method == 'POST':
             
             dict_obj = json.load(request) # load != loads
@@ -50,18 +50,15 @@ class apiView(APIView):
             type1 = dict_obj['type'] 
             page = str(dict_obj['page'])
             Name = str(type1)+'_'+page+"_"+name
-            print("Keys : ",Name,name,n_name)
+            
             img2 = dict_obj['orgimg']
             img2 = np.array(img2)
-            print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@   @@@@@@@@@@@@@@@@@@@@   : ",img2.shape)
-            
-         
-            
+          
             
             model,rep,encod_model = AutoencoderConfig.loadModel(Name,name2=n_name)
             s = int(size**0.5)
             s2 = int(size/s)
-            print("Size >>> : ",s,s2,size)
+           
             botneck = pred_bottelneck(encod_model,img2,shape=(s2,s),name=n_name)
             bot = json.dumps(botneck)
             img = model.predict(img2.reshape((-1,28,28,1)))[0]
@@ -69,7 +66,7 @@ class apiView(APIView):
             lists = img.tolist()
             lists = ai.make_img(lists)
             json_str = json.dumps(lists)
-            print("6")
+            
             rep_img = rep[0]
             rep_lab = rep[1]
     
@@ -79,7 +76,7 @@ class apiView(APIView):
 
             pred = {"img":json_str,"rep_img":rep_str,"bot":bot}
         
-            print(">>>>>>>>>>Clear here<<<<<<<<<<<<<< : \n")
+           
         
             return JsonResponse(pred)
 
@@ -87,24 +84,23 @@ class apiView(APIView):
 
 class getImage(apiView):
     
-    print("Calleeeee : ")
+   
     def post(self, request):
       
-        print("\nCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n : ",request)
+    
         if request.method == 'POST':
             val = json.load(request)
-            print("In Her :><><><><>< \n",val)
+           
            
             dict_obj = val#json.load(request)
-            print("1 dict obj :  ",dict_obj)
-            print("2 : ",dict_obj.keys())
+           
             opt = dict_obj['opt']
             noice = dict_obj['noice']
            
         
             IMAGE = AutoencoderConfig.get_img(opt,noice=noice)
           
-            print("Shpeeeeee : ",IMAGE.shape)
+           
             lists2 = IMAGE.reshape((IMAGE.shape[0],IMAGE.shape[1],1)).tolist()
             mainimg = json.dumps(lists2)
             lists2 = ai.make_img(lists2)

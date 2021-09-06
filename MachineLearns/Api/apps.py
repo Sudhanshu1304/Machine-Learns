@@ -1,6 +1,5 @@
 from django.apps import AppConfig
 import tensorflow as tf
-from django.contrib.staticfiles.storage import staticfiles_storage
 from django.contrib.staticfiles import finders
 
 
@@ -48,7 +47,7 @@ y_test3 = y_test3[:100]
 x_test4 = (x_test4/255.0)[:100]
 x_test4 = x_test4.reshape((len(x_test4),28,28))
 y_test4 = y_test4[:100]
-print("Size 22: ",len(x_test4),len(y_test4),x_test4[0].shape,x_test4.shape)
+#print("Size 22: ",len(x_test4),len(y_test4),x_test4[0].shape,x_test4.shape)
 x_test = x_test3
 y_test = y_test3
 
@@ -60,27 +59,28 @@ class ApiConfig(AppConfig):
 class AutoencoderConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'Api2'
-    print("Err1")
+   # print("Err1")
     global x_test,y_test
-   
+    # x_test,y_test= tf.keras.datasets.fashion_mnist.load_data()[0]
+    # x_test = (x_test/255.0)[:1000]
+    # y_test = y_test[:1000]
     
     
     
-    print("Err2")
+    #print("Err2")
     name = 'Autoencoder'
     
     def loadModel(name,name2):
         p = str(finders.find('Models/{}'.format(name)))
         model = tf.keras.models.load_model(p)
-        print("PPP : ",p)
+       # print("PPP : ",p)
         path22 = str(finders.find('{}enco'.format(p)))#"Api\\Models\\"+name+"enco"
-        print("Nme : ",path22)
+       # print("Nme : ",path22)
         #path22 = 'Api/Models/abcde'
         model_bottelneck = tf.keras.models.load_model(path22)
-        print(model_bottelneck.summary())
-        print("Nmae 2 : ",len(x_test))
+        #print("Nmae 2 : ",len(x_test))
         pred = model_bottelneck.predict(x_test)
-        print("><<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>.Pred : ",pred.shape)
+       # print("><<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>.Pred : ",pred.shape)
         
         if name2 == 'CNN':
             return [model,[pred[:,0,0,:],y_test],model_bottelneck]
