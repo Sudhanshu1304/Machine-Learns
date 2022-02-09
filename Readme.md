@@ -69,3 +69,9 @@ You will also find <strong>Blogs</strong> on different ML & AI Concepts.
 
 </table>
 
+<br>
+
+---
+<div align='center'>
+    <img src='Images/GIF.gif'>
+<div>
