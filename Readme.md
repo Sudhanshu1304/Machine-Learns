@@ -1,12 +1,15 @@
 # <strong>Machine-Learns</strong>
 
-![](Images/Sound%20Wave.png)
+<div align='center'>
+    <img src='Images/GIF.gif'>
+<div>
 
 
 <br>
 <strong>
 
-[Link to the Website --- Cick here 👈](http://machine-learns.herokuapp.com/)
+[Link to the Website --- Cick here 👈](http://machine-learns.herokuapp.com/) <br>
+**"Note" : because of free hosting service and heavy model hosted on heroku the website may take quite some time to open**
 
 <strong>
 
@@ -70,8 +73,3 @@ You will also find <strong>Blogs</strong> on different ML & AI Concepts.
 </table>
 
 <br>
-
----
-<div align='center'>
-    <img src='Images/GIF.gif'>
-<div>
